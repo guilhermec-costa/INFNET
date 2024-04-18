@@ -1,6 +1,7 @@
 import { FaStar } from "react-icons/fa";
 export default function StaticVote({ totalStars, votedStars }) 
-{   const stars = [];
+{   
+    const stars = [];
     for(let i=1; i<=totalStars; ++i) {
         if( i <= votedStars) {
             stars.push(<FaStar key={i} fill="orange" size={30}/>);
