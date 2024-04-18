@@ -1,5 +1,6 @@
 import './App.css'
-import Vote from './components/Vote'
+import MutableVote from './components/MutableVote'
+import StaticVote from './components/StaticVote'
 
 function App() {
     return (
@@ -7,6 +8,7 @@ function App() {
             <StaticVote totalStars={5} votedStars={3}/>    
             <StaticVote totalStars={7} votedStars={2}/>    
             <StaticVote totalStars={10} votedStars={5}/>    
+            <MutableVote totalVotes={5} votedVotes={3}/>
         </>
     ) 
 }
