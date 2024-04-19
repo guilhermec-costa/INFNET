@@ -9,18 +9,20 @@ export default function MutableVote(
 ) {
     const [stars, setStars] = useState([]);
     function applyRangeOfVotes(starIndex)  {
-        for(let i=0; i<starIndex; i++) {
+        let array = [];
+        for(let i=0; i<=starIndex; i++) {
             if(i <= starIndex) {
-                console.log(stars[i].props.fill = "red");
+                array[i] = stars[i].props.style.color = "red";
             }
         }
+        setStars(array);
     }
 
     const getStarsIcon = useCallback(() => {
         let stars = [];
-        for(let i=1; i<=totalVotes; ++i) {
+        for(let i=0; i<totalVotes; ++i) {
                 stars.push(
-                    <FaStar key={i} fill="grey" size={30} onMouseEnter={() => applyRangeOfVotes(i)} />
+                    <FaStar key={i} size={30} onMouseEnter={() => applyRangeOfVotes(i)} style={{ color: "grey"}}/>
                 );
         }
         return stars;
