@@ -2,20 +2,20 @@ import React from "react"
 import { useContext } from "react";
 import { createContext } from "react";
 
-const RandomContext = createContext({ name: "Churros", _class: "Dog"});
+export const RandomContext = createContext({ name: "Churros", _class: "Dog"});
 
-function RandomContextProvider({props}) {
+export function RandomContextProvider({ children }) {
     const favoriteDog = {
         name: "Churros",
         _class: "Dog"
     }
 
     return (
-        <RandomContext.Provider value={favoriteDog}>{props?.children}</RandomContext.Provider>
+        <RandomContext.Provider value={favoriteDog}>{ children }</RandomContext.Provider>
     )
 }
 
-export default function useRandomContext() {
+export function useRandomContext() {
     const randomContext = useContext(RandomContext);
     if(!randomContext) console.log("Context not found");
 
