@@ -1,16 +1,18 @@
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import MutableVote from './components/MutableVote'
-import StaticVote from './components/StaticVote'
+import Furnitures from './pages/furnitures/Furnitures';
+import Layout from './Layout';
 
 function App() {
     return (
-        <>
-            <StaticVote totalStars={5} votedStars={3}/>    
-            <StaticVote totalStars={7} votedStars={2}/>    
-            <StaticVote totalStars={10} votedStars={5}/>    
-            <MutableVote totalVotes={5} votedVotes={3}/>
-        </>
-    ) 
+        <Routes>
+            <Route path='/' element={<Layout />}>
+                <Route path='/furniture1' element={<Furnitures />} />
+                <Route path='/furniture2' element={<Furnitures />} />
+                <Route path='/furniture3' element={<Furnitures />} />
+            </Route>
+        </Routes>
+    );
 }
 
 export default App
