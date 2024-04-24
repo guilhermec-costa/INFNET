@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Learning Grid</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 30% 30% 30%;
+            grid-template-rows: 1fr 1fr 1fr;
+            height: 700px;
+            width: 100%;
+            background: red;
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .container__item {
+            background: blueviolet;
+            border: 1px solid black;
+            border-radius: 8px;
+        }
+
+        .item-1 {
+            grid-row: 3/4;
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container__item item-1">Um</div>
+        <div class="container__item">Dois</div>
+        <div class="container__item">tres</div>
+        <div class="container__item">Um</div>
+        <div class="container__item">Dois</div>
+        <div class="container__item">tres</div>
+    </div>
+</body>
+
+</html>
