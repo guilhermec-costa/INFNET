@@ -1,6 +1,5 @@
 import React from "react";
 import { Outlet } from "react-router";
-import { RandomContextProvider } from "./contexts/RandomContext";
 
 export default function Layout(props) {
     return (

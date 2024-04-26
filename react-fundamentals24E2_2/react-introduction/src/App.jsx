@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Furnitures from './pages/furnitures/Furnitures';
 import Layout from './Layout';
-import { RandomContextProvider } from './contexts/RandomContext';
 
 function App() {
     return (
