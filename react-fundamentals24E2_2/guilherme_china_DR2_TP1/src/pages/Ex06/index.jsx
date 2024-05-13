@@ -13,8 +13,15 @@ const Ex06 = () => {
             {idade >= 18 ?
                 "Você é maior de idade" :
                 "Você é menor de idade"}
-        <br />
-        {compras.map(compra => <p>{compra}</p>)}
+            <br />
+            {compras.map(compra => {
+                if (compra === "Leite") {
+                    return <p>
+                        Esse item é essencial: {compra}
+                    </p>
+                }
+                return <p>compra</p>
+            })}
         </div>
     )
 }
