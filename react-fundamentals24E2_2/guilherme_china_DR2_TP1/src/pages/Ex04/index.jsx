@@ -1,5 +1,8 @@
 import React from "react";
 import "./style.css"
+/* Declare uma variável "idade" com o valor "30" usando a diretiva "let". Crie uma variável "ehMaiorDeIdade" que verifica se a idade é maior ou igual a 18 anos. 
+Declare uma variável "nomeCompleto" com o valor "João Silva" usando a diretiva "let". Altere o valor da variável "nomeCompleto" para "Maria Silva".
+ Declare uma variável "casado" com o valor "false" usando a diretiva "let". Altere o valor da variável "casado" para "true. Use funcões e expressões JavaScript para mostrar os dados. */
 
 const Ex04 = () => {
     let idade = 30;

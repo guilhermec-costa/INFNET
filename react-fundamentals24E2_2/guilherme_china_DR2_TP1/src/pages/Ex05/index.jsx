@@ -1,6 +1,9 @@
 import React from "react";
 import "./style.css"
-
+/* Declare um objeto "pessoa" com as propriedades "nome", "idade" e "sobrenome". Altere o valor da propriedade "idade" do objeto "pessoa" para 35. 
+Adicione uma nova propriedade "profissao" ao objeto "pessoa".Declare um array "familia" com os objetos "pessoa", mais outras pessoas da família. 
+Adicione um novo membro à família (um novo objeto ao array "familia"). Altere o valor da propriedade "nome" de uma das pessoas no array "familia".  
+Use funcões e expressões JavaScript para mostrar os dados. */
 const Ex05 = () => {
     let pessoa = {
         nome: "Churros",
@@ -8,8 +11,8 @@ const Ex05 = () => {
         sobrenome: "Augusto"
     }
 
-    pessoa.idade = 35
-    pessoa.profissao = undefined
+    pessoa.idade = 35;
+    pessoa.profissao = undefined;
     pessoa.familia = [
         { ...pessoa },
         {
@@ -33,8 +36,8 @@ const Ex05 = () => {
         }
     ]
 
-    pessoa.familia[1].nome = "Churros20"
-    console.log(pessoa)
+    pessoa.familia[1].nome = "Churros20";
+    console.log(pessoa);
 
     return <div><p>
         {JSON.stringify(pessoa, null, 4)}

@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.css"
+/* Crie uma página básica em React com HTML, CSS e JavaScript que exiba a resposta para a pergunta "O que é CDN?" numa tag parágrafo dentro de uma div. 
+Teste no App.jsx e depois comente o código. */
 
 const Ex02 = () => {
     return (

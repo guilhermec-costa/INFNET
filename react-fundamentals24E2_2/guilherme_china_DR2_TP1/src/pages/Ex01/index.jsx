@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css"
 
+/* Crie uma página básica em React com HTML, CSS e JavaScript que exiba a resposta para a pergunta "O que é React?" numa tag parágrafo dentro de uma div. */
 const Ex01 = () => {
     return (
         <div className="explanation">

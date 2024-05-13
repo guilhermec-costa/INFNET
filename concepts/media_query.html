@@ -12,7 +12,8 @@
         body {
             background: red;
         }
-
+        
+        /* creates breakpoints */
         @media(min-width: 800px) {
             body {
                 background: green;
@@ -22,6 +23,19 @@
         @media(max-width: 500px) {
             body {
                 background: blue;
+            }
+        }
+
+        @media print {
+            body {
+                color: yellow;
+                background: green;
+            }
+        }
+
+        @media screen and (max-width: 200px) {
+            body {
+                background: violet;
             }
         }
     </style>
