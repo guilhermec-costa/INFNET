@@ -8,6 +8,7 @@ import Ex06 from "./pages/Ex06";
 import Ex07 from "./pages/Ex07";
 import Ex08 from "./pages/Ex08";
 import Ex09 from "./pages/Ex09";
+import Ex10 from "./pages/Ex10";
 
 export default function App() {
     return (
@@ -20,7 +21,8 @@ export default function App() {
             {/* <Ex06 /> */}
             {/* <Ex07 /> */}
             {/* <Ex08 activeStars={3} totalStars={5}/> */}
-            <Ex09 activeStars={0} totalStars={5}/>
+            {/* <Ex09 activeStars={0} totalStars={5}/> */}
+            <Ex10 />
         </main>
     )
 }
