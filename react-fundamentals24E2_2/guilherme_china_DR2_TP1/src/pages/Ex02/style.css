@@ -8,11 +8,11 @@ body {
 
     width: 100vw;
     height: 100vh;
-    background: #001125;
 }
 
+
 p {
-    color: #000000;
+    color: #F8F7FF;
     font-weight: bold;
     font-size: 1.2rem;
     margin-top: 1rem;
@@ -22,7 +22,7 @@ p {
 
 .explanation {
     margin-top: 4%;
-    background: #001125;
+    background: #B8B8FF;
     width: 60%;
     width: 50vw;
     margin-inline: auto;
@@ -35,7 +35,6 @@ p {
 .separator {
     width: 100%;
     height: 1.2px;
-    background: #9381FF;
     margin-inline: auto;
     margin-top: 1ch;
 }
