@@ -1,0 +1,16 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #001125;
+}
+
+p {
+    color: #ffffff;
+    font-weight: bold;
+}
