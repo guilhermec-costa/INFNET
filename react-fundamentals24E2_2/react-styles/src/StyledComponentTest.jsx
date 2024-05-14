@@ -1,4 +1,6 @@
-import styled, { css } from "styled-components"
+import styled, { css, ThemeProvider } from "styled-components"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Card } from "react-bootstrap";
 
 const StyledComponentTest = () => {
     const Title = styled.h1`
@@ -6,7 +8,7 @@ const StyledComponentTest = () => {
     `;
 
     const Container = styled.div`
-    background: ${(props) => props.primary ? "orange" : "blue"};
+    background: ${(props) => props.theme.main};
 
     ${(props) =>
             props.testable && css`
@@ -19,11 +21,20 @@ const StyledComponentTest = () => {
     }
     `
 
+    const theme = {
+        main: "grey"
+    }
+
     return (
-        <Container primary testable={true}>
-            <Title>StyledComponent</Title>
-            <h2 className="aclass">A h2 text</h2>
-        </Container>
+        <ThemeProvider theme={theme}>
+            <Container primary testable={true}>
+                <Card>
+                    <Title>StyledComponent</Title>
+                    <h2 className="aclass warning">A h2 text</h2>
+                    <Button variant="warning" value={"Warning"}>Warning</Button>
+                </Card>
+            </Container>
+        </ThemeProvider>
     )
 }
 
