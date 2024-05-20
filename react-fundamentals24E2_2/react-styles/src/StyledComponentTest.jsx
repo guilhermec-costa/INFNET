@@ -1,11 +1,16 @@
 import styled, { css, ThemeProvider } from "styled-components"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card } from "react-bootstrap";
+import { useEffect } from "react";
 
-const StyledComponentTest = () => {
+const StyledComponentTest = ({ buttonProps, user }) => {
     const Title = styled.h1`
         color: red;
     `;
+
+    useEffect(() => {
+        console.log("Usuário alterado")
+    }, [user])
 
     const Container = styled.div`
     background: ${(props) => props.theme.main};
@@ -31,10 +36,13 @@ const StyledComponentTest = () => {
                 <Card>
                     <Title>StyledComponent</Title>
                     <h2 className="aclass warning">A h2 text</h2>
-                    <Button variant="warning" value={"Warning"}>Warning</Button>
+                    {user && (
+                        < Button {...buttonProps} >Warning</Button>
+                    )
+                    }
                 </Card>
             </Container>
-        </ThemeProvider>
+        </ThemeProvider >
     )
 }
 
