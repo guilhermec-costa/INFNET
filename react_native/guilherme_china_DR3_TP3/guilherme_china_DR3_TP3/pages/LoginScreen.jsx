@@ -1,4 +1,3 @@
-// src/LoginScreen.js
 import React, { useState } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { TextInput, Button, Text } from 'react-native-paper';

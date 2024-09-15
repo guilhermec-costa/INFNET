@@ -1,8 +1,12 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { themes, getSystemTheme } from '../themes';
+import { themes, getSystemTheme } from '@/app/theme';
 
-const ThemeContext = createContext();
+interface themeType {
+    theme: any,
+    setAppTheme(t: string): any
+}
+const ThemeContext = createContext({} as themeType);
 
 const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(getSystemTheme());
@@ -24,7 +28,7 @@ const ThemeProvider = ({ children }) => {
         loadTheme();
     }, []);
 
-    const setAppTheme = async (themeName) => {
+    async function setAppTheme (themeName: string) {
         const selectedTheme = themes[themeName] || getSystemTheme();
         setTheme(selectedTheme);
         try {
@@ -43,4 +47,4 @@ const ThemeProvider = ({ children }) => {
 
 const useTheme = () => useContext(ThemeContext);
 
-export { ThemeProvider, useTheme };
+export { ThemeProvider as MyThemeProvider, useTheme };

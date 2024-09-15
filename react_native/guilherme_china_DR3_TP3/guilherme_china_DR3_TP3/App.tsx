@@ -15,7 +15,6 @@ const Stack = createStackNavigator();
 
 const AppContent = () => {
   const { theme } = useTheme();
-  console.log(theme)
 
   if (!theme) {
     return null;

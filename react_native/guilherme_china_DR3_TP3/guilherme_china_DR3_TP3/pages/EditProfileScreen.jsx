@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
 		marginTop: 12,
 	},
 	buttonText: {
-		color: '#ffffff', // Cor do texto dos botões
+		color: '#ffffff', 
 	},
 	error: {
 		color: 'red',

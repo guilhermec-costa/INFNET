@@ -30,7 +30,6 @@ const TableComponent = () => {
 					<DataTable.Cell numeric>Belo Horizonte</DataTable.Cell>
 				</DataTable.Row>
 
-				{/* Paginação */}
 				<DataTable.Pagination
 					page={0}
 					numberOfPages={3}
