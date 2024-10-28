@@ -19,8 +19,7 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.guilhermecosta.financeapp"
+      }
     },
     "web": {
       "bundler": "metro",
@@ -33,14 +32,6 @@
     ],
     "experiments": {
       "typedRoutes": true
-    },
-    "extra": {
-      "router": {
-        "origin": false
-      },
-      "eas": {
-        "projectId": "fc66731e-c03c-4bf4-930d-d6f4b92207bc"
-      }
     }
   }
 }

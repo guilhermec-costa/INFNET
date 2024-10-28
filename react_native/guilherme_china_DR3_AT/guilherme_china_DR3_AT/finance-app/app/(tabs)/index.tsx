@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, Button, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
 import { AuthContext } from '@/context/AuthContext';
 import NetworkStatus from '@/components/NetworkStatus';
 import { useTheme } from '@/context/ThemeContext';
@@ -10,43 +10,36 @@ const mockTransactions = [
   { id: '3', title: 'Aluguel', amount: -800.00, date: '2024-09-01' },
 ];
 
-const TransactionItem = ({ item }) => {
-  const { theme } = useTheme();
-  return (
-    <TouchableOpacity activeOpacity={0.7} style={[styles.transaction, { backgroundColor: theme.cardBackground }]}>
-      <Text style={[styles.transactionTitle, { color: theme.text }]}>{item.title}</Text>
+export default function HomeScreen() {
+  const { logout, isAuthenticated } = useContext(AuthContext);
+  const {theme} = useTheme();
+
+  const renderTransaction = ({ item }) => (
+    <View style={styles.transaction}>
+      <Text style={styles.transactionTitle}>{item.title}</Text>
       <Text style={item.amount > 0 ? styles.income : styles.expense}>
         {item.amount > 0 ? `+ R$${item.amount}` : `- R$${Math.abs(item.amount)}`}
       </Text>
       <Text style={styles.transactionDate}>{item.date}</Text>
-    </TouchableOpacity>
+    </View>
   );
-};
-
-export default function HomeScreen() {
-  const { logout, isAuthenticated } = useContext(AuthContext);
-  const { theme } = useTheme();
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
+    <View style={styles.container}>
       <NetworkStatus />
-      <Text style={[styles.balanceTitle, { color: theme.text }]}>Saldo Atual</Text>
-      <Text style={[styles.balance, { color: theme.success }]}>R$ 2.050,00</Text>
-
-      <Text style={[styles.transactionsTitle, { color: theme.text }]}>Últimas Transações</Text>
+      Theme: {theme.dark ? "dark" : "light"}
+      <Text style={styles.balanceTitle}>Saldo Atual</Text>
+      <Text style={styles.balance}>R$ 2.050,00</Text>
+      
+      <Text style={styles.transactionsTitle}>Últimas Transações</Text>
       <FlatList
         data={mockTransactions}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <TransactionItem item={item} />}
-        showsVerticalScrollIndicator={false}
+        renderItem={renderTransaction}
       />
 
       {isAuthenticated && (
-        <Button
-          title="Logout"
-          onPress={logout}
-          color={theme.primary}
-        />
+        <Button title="Logout" onPress={logout} />
       )}
     </View>
   );
@@ -56,6 +49,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    backgroundColor: '#f5f5f5',
   },
   balanceTitle: {
     fontSize: 24,
@@ -65,6 +59,7 @@ const styles = StyleSheet.create({
   },
   balance: {
     fontSize: 32,
+    color: '#4caf50',
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 16,
@@ -75,6 +70,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   transaction: {
+    backgroundColor: '#fff',
     padding: 16,
     borderRadius: 8,
     marginBottom: 10,
@@ -99,6 +95,5 @@ const styles = StyleSheet.create({
   transactionDate: {
     fontSize: 14,
     color: '#888',
-    marginTop: 4,
   },
 });
