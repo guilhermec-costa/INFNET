@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "guilherme_china_DR3_TP3",
+    "slug": "guilherme_china_DR3_TP3",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.guilhermecosta.guilherme_china_DR3_TP3"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "19125cdc-5930-4d51-bde0-4aa9463786fb"
+      }
+    }
+  }
+}

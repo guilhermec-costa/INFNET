@@ -1,0 +1,50 @@
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { themes, getSystemTheme } from '@/app/theme';
+
+interface themeType {
+    theme: any,
+    setAppTheme(t: string): any
+}
+const ThemeContext = createContext({} as themeType);
+
+const ThemeProvider = ({ children }) => {
+    const [theme, setTheme] = useState(getSystemTheme());
+
+    useEffect(() => {
+        const loadTheme = async () => {
+            try {
+                const savedTheme = await AsyncStorage.getItem('theme');
+                if (savedTheme) {
+                    setTheme(themes[savedTheme]);
+                } else {
+                    setTheme(getSystemTheme());
+                }
+            } catch (error) {
+                console.error('Failed to load theme:', error);
+                setTheme(getSystemTheme());
+            }
+        };
+        loadTheme();
+    }, []);
+
+    async function setAppTheme (themeName: string) {
+        const selectedTheme = themes[themeName] || getSystemTheme();
+        setTheme(selectedTheme);
+        try {
+            await AsyncStorage.setItem('theme', themeName);
+        } catch (error) {
+            console.error('Failed to save theme:', error);
+        }
+    };
+
+    return (
+        <ThemeContext.Provider value={{ theme, setAppTheme }}>
+            {children}
+        </ThemeContext.Provider>
+    );
+};
+
+const useTheme = () => useContext(ThemeContext);
+
+export { ThemeProvider as MyThemeProvider, useTheme };
