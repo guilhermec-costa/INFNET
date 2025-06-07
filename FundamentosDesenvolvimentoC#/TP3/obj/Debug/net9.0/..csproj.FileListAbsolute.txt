@@ -1,0 +1,8 @@
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/..GeneratedMSBuildEditorConfig.editorconfig
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/..AssemblyInfoInputs.cache
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/..AssemblyInfo.cs
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/..csproj.CoreCompileInputs.cache
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/..sourcelink.json
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/..dll
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/refint/..dll
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/..pdb

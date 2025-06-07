@@ -1,0 +1,15 @@
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/bin/Debug/net9.0/TP3
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/bin/Debug/net9.0/TP3.deps.json
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/bin/Debug/net9.0/TP3.runtimeconfig.json
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/bin/Debug/net9.0/TP3.dll
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/bin/Debug/net9.0/TP3.pdb
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/TP3.GeneratedMSBuildEditorConfig.editorconfig
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/TP3.AssemblyInfoInputs.cache
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/TP3.AssemblyInfo.cs
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/TP3.csproj.CoreCompileInputs.cache
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/TP3.sourcelink.json
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/TP3.dll
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/refint/TP3.dll
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/TP3.pdb
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/TP3.genruntimeconfig.cache
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/TP3/obj/Debug/net9.0/ref/TP3.dll
