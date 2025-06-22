@@ -213,8 +213,8 @@ namespace AT_BackendDotnet
         static void Exercicio1()
         {
             Console.WriteLine("EXERCÍCIO 1 - Primeiro Programa");
-            Console.WriteLine("Olá, meu nome é João Silva!");
-            Console.WriteLine("Nasci em 15/03/1990 e estou aprendendo C#!");
+            Console.WriteLine("Olá, meu nome é Guilherme China!");
+            Console.WriteLine("Nasci em 05/06/2004 e estou aprendendo C#!");
         }
 
         static void Exercicio2()
