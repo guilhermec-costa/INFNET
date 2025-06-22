@@ -1,0 +1,15 @@
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/bin/Debug/net9.0/AT
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/bin/Debug/net9.0/AT.deps.json
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/bin/Debug/net9.0/AT.runtimeconfig.json
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/bin/Debug/net9.0/AT.dll
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/bin/Debug/net9.0/AT.pdb
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/obj/Debug/net9.0/AT.GeneratedMSBuildEditorConfig.editorconfig
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/obj/Debug/net9.0/AT.AssemblyInfoInputs.cache
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/obj/Debug/net9.0/AT.AssemblyInfo.cs
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/obj/Debug/net9.0/AT.csproj.CoreCompileInputs.cache
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/obj/Debug/net9.0/AT.sourcelink.json
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/obj/Debug/net9.0/AT.dll
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/obj/Debug/net9.0/refint/AT.dll
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/obj/Debug/net9.0/AT.pdb
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/obj/Debug/net9.0/AT.genruntimeconfig.cache
+/home/guichina/dev/infnet/FundamentosDesenvolvimentoC#/AT/obj/Debug/net9.0/ref/AT.dll

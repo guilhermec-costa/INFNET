@@ -1,0 +1,3 @@
+Notebook,2,4500.00
+Mouse,10,75.50
+Teclado,5,150.00
