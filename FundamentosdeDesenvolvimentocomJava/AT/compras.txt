@@ -1,0 +1,21 @@
+===== REGISTRO DE COMPRAS =====
+Data: 2025-06-25
+
+Compra 1:
+Produto: Bola
+Quantidade: 2
+Preço Unitário: R$ 10.00
+Total: R$ 20.00
+------------------------
+Compra 2:
+Produto: Cabide
+Quantidade: 10
+Preço Unitário: R$ 5.00
+Total: R$ 50.00
+------------------------
+Compra 3:
+Produto: Mesa
+Quantidade: 1
+Preço Unitário: R$ 400.00
+Total: R$ 400.00
+------------------------
