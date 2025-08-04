@@ -1,0 +1,2 @@
+id,numero,dataPedido,valorTotal,clienteId,enderecoId,formaPagamentoId
+1,PED001,1754313030007,2550.00,1,1,1
