@@ -6,10 +6,6 @@ public class CSVManager {
     private static final String PRODUTOS_FILE = "produtos.csv";
     private static final String PEDIDOS_FILE = "pedidos.csv";
     private static final String ITENS_PEDIDO_FILE = "itens_pedido.csv";
-    private static final String ENDERECOS_FILE = "enderecos.csv";
-    private static final String FORMAS_PAGAMENTO_FILE = "formas_pagamento.csv";
-    private static final String STATUS_PEDIDO_FILE = "status_pedido.csv";
-    private static final String HISTORICO_PEDIDO_FILE = "historico_pedido.csv";
     
     public static void salvarClientes(List<Cliente> clientes) throws IOException {
         try (PrintWriter writer = new PrintWriter(new FileWriter(CLIENTES_FILE))) {

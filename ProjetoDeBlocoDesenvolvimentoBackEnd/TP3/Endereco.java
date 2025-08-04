@@ -21,7 +21,6 @@ public class Endereco {
         this.estado = estado;
     }
     
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     
