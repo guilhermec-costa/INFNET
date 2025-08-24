@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/LojaRazorTP1.props" />
-</Project>

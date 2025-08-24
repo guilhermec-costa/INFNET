@@ -4,6 +4,7 @@ namespace TP1
     {
         public static void Execute()
         {
+            Console.WriteLine("=== Exercício 11 ===");
             Func<string, string, string> processador = (nome, sobrenome) =>
             {
                 string resultado = $"{nome} {sobrenome}";

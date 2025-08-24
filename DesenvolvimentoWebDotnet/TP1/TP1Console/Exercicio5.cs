@@ -46,7 +46,7 @@ namespace TP1
             catch (Exception ex)
             {
                 TimeSpan duration = DateTime.Now - startTime;
-                Console.WriteLine($"\n❌ Erro durante o download: {ex.Message}");
+                Console.WriteLine($"\nErro durante o download: {ex.Message}");
                 OnDownloadCompleted(fileName, fileSize, duration, false);
             }
         }
@@ -85,6 +85,7 @@ namespace TP1
     {
         public static void Execute()
         {
+            Console.WriteLine("=== Exercício 5 ===");
             Console.WriteLine("=== Sistema de Gerenciamento de Downloads ===");
             Console.WriteLine();
             
@@ -126,7 +127,7 @@ namespace TP1
                 Console.WriteLine("DOWNLOAD CONCLUÍDO COM SUCESSO!");
                 Console.WriteLine($"Arquivo: {e.FileName}");
                 Console.WriteLine($"Tamanho: {FormatFileSize(e.FileSize)}");
-                Console.WriteLine($"  Duração: {e.Duration.TotalSeconds:F1} segundos");
+                Console.WriteLine($"Duração: {e.Duration.TotalSeconds:F1} segundos");
                 Console.WriteLine($"Concluído em: {e.CompletedAt:dd/MM/yyyy HH:mm:ss}");
                 Console.WriteLine($"Velocidade média: {CalculateSpeed(e.FileSize, e.Duration)} MB/s");
             }
@@ -143,7 +144,7 @@ namespace TP1
         {
             if (e.Success)
             {
-                Console.WriteLine($"📈 Estatísticas registradas para {e.FileName}");
+                Console.WriteLine($"Estatísticas registradas para {e.FileName}");
             }
         }
         

@@ -6,6 +6,7 @@ namespace TP1
     {
         public static void Execute()
         {
+            Console.WriteLine("=== Exercício 2 ===");
             Console.WriteLine("=== Sistema de Mensagens Multilíngues ===");
             
             try

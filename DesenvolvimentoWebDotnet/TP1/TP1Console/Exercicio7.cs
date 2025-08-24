@@ -26,18 +26,18 @@ namespace TP1
         
         public void LogSimple(string message)
         {
-            Console.WriteLine($"🔄 Executando log simples: {message}");
+            Console.WriteLine($"Executando log simples: {message}");
             _loggers?.Invoke(message);
-            Console.WriteLine("✅ Log simples concluído");
+            Console.WriteLine("Log simples concluído");
         }
         
         public void LogRobust(string message)
         {
-            Console.WriteLine($"🛡️  Executando log robusto: {message}");
+            Console.WriteLine($"Executando log robusto: {message}");
             
             if (_loggers == null)
             {
-                Console.WriteLine("⚠️  Nenhum logger configurado");
+                Console.WriteLine("Nenhum logger configurado");
                 return;
             }
             
@@ -55,11 +55,11 @@ namespace TP1
                 catch (Exception ex)
                 {
                     failureCount++;
-                    Console.WriteLine($"❌ Falha em logger: {ex.Message}");
+                    Console.WriteLine($"Falha em logger: {ex.Message}");
                 }
             }
             
-            Console.WriteLine($"📊 Resultado: {successCount} sucessos, {failureCount} falhas");
+            Console.WriteLine($"Resultado: {successCount} sucessos, {failureCount} falhas");
         }
         
         public int GetLoggerCount()
@@ -72,6 +72,7 @@ namespace TP1
     {
         public static void Execute()
         {
+            Console.WriteLine("=== Exercício 7 ===");
             Console.WriteLine("=== Sistema de Log Robusto com Null-Conditional Operator ===");
             Console.WriteLine();
             

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dCjH7E9Ommw=",
+  "dgSpecHash": "gL6lpwJ/+J0=",
   "success": true,
-  "projectFilePath": "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/LojaRazorTP1/LojaRazorTP1.csproj",
+  "projectFilePath": "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/TP1/LojaRazorTP1/LojaRazorTP1.csproj",
   "expectedPackageFiles": [
     "/home/guichina/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.4/microsoft.aspnetcore.app.ref.9.0.4.nupkg.sha512"
   ],

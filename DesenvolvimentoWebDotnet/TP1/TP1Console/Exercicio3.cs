@@ -6,6 +6,7 @@ namespace TP1
     {
         public static void Execute()
         {
+            Console.WriteLine("=== Exercício 3 ===");
             Console.WriteLine("=== Sistema de Cálculo de Área de Retângulo ===");
             
             try

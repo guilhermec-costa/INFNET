@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/LojaRazorTP1/LojaRazorTP1.csproj": {}
+    "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/TP1/LojaRazorTP1/LojaRazorTP1.csproj": {}
   },
   "projects": {
-    "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/LojaRazorTP1/LojaRazorTP1.csproj": {
+    "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/TP1/LojaRazorTP1/LojaRazorTP1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/LojaRazorTP1/LojaRazorTP1.csproj",
+        "projectUniqueName": "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/TP1/LojaRazorTP1/LojaRazorTP1.csproj",
         "projectName": "LojaRazorTP1",
-        "projectPath": "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/LojaRazorTP1/LojaRazorTP1.csproj",
+        "projectPath": "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/TP1/LojaRazorTP1/LojaRazorTP1.csproj",
         "packagesPath": "/home/guichina/.nuget/packages/",
-        "outputPath": "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/LojaRazorTP1/obj/",
+        "outputPath": "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/TP1/LojaRazorTP1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/guichina/.nuget/NuGet/NuGet.Config"

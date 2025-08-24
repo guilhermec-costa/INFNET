@@ -19,7 +19,7 @@ namespace TP1
             string timestamp = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             string formattedMessage = $"[CONSOLE] {timestamp} - {message}";
             
-            Console.WriteLine("📺 " + formattedMessage);
+            Console.WriteLine(formattedMessage);
         }
         
         public void LogToFile(string message)
@@ -30,11 +30,11 @@ namespace TP1
                 string formattedMessage = $"[FILE] {timestamp} - {message}";
                 
                 File.AppendAllText(_logFilePath, formattedMessage + Environment.NewLine);
-                Console.WriteLine("💾 Log gravado em arquivo");
+                Console.WriteLine("Log gravado em arquivo");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"❌ Erro ao gravar no arquivo: {ex.Message}");
+                Console.WriteLine($"Erro ao gravar no arquivo: {ex.Message}");
             }
         }
         
@@ -45,11 +45,11 @@ namespace TP1
                 string timestamp = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                 
                 Thread.Sleep(100);
-                Console.WriteLine($"🗄️  Log gravado no banco: ID_{DateTime.Now.Ticks} - {message}");
+                Console.WriteLine($"Log gravado no banco: ID_{DateTime.Now.Ticks} - {message}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"❌ Erro ao gravar no banco: {ex.Message}");
+                Console.WriteLine($"Erro ao gravar no banco: {ex.Message}");
             }
         }
         
@@ -60,16 +60,16 @@ namespace TP1
                 if (File.Exists(_logFilePath))
                 {
                     string[] lines = File.ReadAllLines(_logFilePath);
-                    Console.WriteLine($"📊 Total de logs em arquivo: {lines.Length}");
+                    Console.WriteLine($"Total de logs em arquivo: {lines.Length}");
                 }
                 else
                 {
-                    Console.WriteLine("📊 Nenhum log encontrado em arquivo");
+                    Console.WriteLine("Nenhum log encontrado em arquivo");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"❌ Erro ao ler estatísticas: {ex.Message}");
+                Console.WriteLine($"Erro ao ler estatísticas: {ex.Message}");
             }
         }
     }
@@ -78,6 +78,7 @@ namespace TP1
     {
         public static void Execute()
         {
+            Console.WriteLine("=== Exercício 6 ===");
             Console.WriteLine("=== Sistema de Registro com Multicast Delegate ===");
             Console.WriteLine();
             

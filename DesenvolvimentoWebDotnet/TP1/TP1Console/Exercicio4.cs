@@ -47,6 +47,7 @@ namespace TP1
     {
         public static void Execute()
         {
+            Console.WriteLine("=== Exercício 4 ===");
             Console.WriteLine("=== Sistema de Monitoramento de Temperatura ===");
             Console.WriteLine("Limite seguro de temperatura: 100°C");
             Console.WriteLine();
@@ -95,7 +96,7 @@ namespace TP1
             Console.WriteLine($"Temperatura: {e.Temperature:F1}°C");
             Console.WriteLine($"Excesso: +{(e.Temperature - 100):F1}°C acima do limite");
             Console.WriteLine($"Timestamp: {e.Timestamp:dd/MM/yyyy HH:mm:ss}");
-            Console.WriteLine("⚠️  Ação necessária: Verificar equipamento imediatamente!");
+            Console.WriteLine("Ação necessária: Verificar equipamento imediatamente!");
         }
         
         static void LogTemperatureExceeded(object sender, TemperatureExceededEventArgs e)
