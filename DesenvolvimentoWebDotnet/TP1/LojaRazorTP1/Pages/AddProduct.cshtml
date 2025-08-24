@@ -1,0 +1,29 @@
+﻿@page
+@model LojaRazor.Pages.AddProductModel
+@{
+    ViewData["Title"] = "Adicionar Produto";
+}
+
+<h1>Adicionar Produto</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="NovoProduto.Nome">Nome</label>
+        <input asp-for="NovoProduto.Nome" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NovoProduto.Preco">Preço</label>
+        <input asp-for="NovoProduto.Preco" class="form-control" type="number" step="0.01" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+
+@if (Model.DadosEnviados)
+{
+    <hr />
+    <h2>Produto cadastrado:</h2>
+    <p><strong>Nome:</strong> @Model.NovoProduto.Nome</p>
+    <p><strong>Preço:</strong> @Model.NovoProduto.Preco.ToString("C")</p>
+}

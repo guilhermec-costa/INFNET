@@ -1,0 +1,35 @@
+﻿@page
+@model LojaRazor.Pages.AddEventModel
+@{
+    ViewData["Title"] = "Cadastrar Evento";
+}
+
+<h1>Cadastrar Evento</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="NovoEvento.Titulo">Título</label>
+        <input asp-for="NovoEvento.Titulo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NovoEvento.Data">Data</label>
+        <input asp-for="NovoEvento.Data" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NovoEvento.Local">Local</label>
+        <input asp-for="NovoEvento.Local" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+</form>
+
+@if (Model.DadosEnviados)
+{
+    <hr />
+    <h2>Evento cadastrado com sucesso:</h2>
+    <p><strong>Título:</strong> @Model.NovoEvento.Titulo</p>
+    <p><strong>Data:</strong> @Model.NovoEvento.Data.ToShortDateString()</p>
+    <p><strong>Local:</strong> @Model.NovoEvento.Local</p>
+}

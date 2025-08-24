@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/LojaRazorTP1.props" />
+</Project>
