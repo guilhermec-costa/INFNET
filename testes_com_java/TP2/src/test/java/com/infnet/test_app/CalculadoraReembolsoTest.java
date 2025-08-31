@@ -24,7 +24,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class) // Habilita o Mockito para os testes
+@ExtendWith(MockitoExtension.class)
 class CalculadoraReembolsoTest {
 
     // Etapa 8: Usando Mockito para criar mocks das dependências
@@ -78,7 +78,7 @@ class CalculadoraReembolsoTest {
 
         calculadora.calcular(consulta);
 
-        // Verificamos se o método 'registrar' foi chamado exatamente 1 vez
+        // Verifica se o método 'registrar' foi chamado exatamente 1 vez
         verify(historicoMock, times(1)).registrar(consulta);
     }
 
@@ -95,7 +95,6 @@ class CalculadoraReembolsoTest {
     @DisplayName("[Etapa 6] Deve usar o percentual de cobertura do plano de saúde (Stub)")
     void deveCalcularComBaseNoPlanoDeSaudeStub() {
         PlanoSaude planoStub = new PlanoSaudeStub80();
-        // Criamos uma nova instância da calculadora para usar nosso Stub real
         CalculadoraReembolso calculadoraComStub = new CalculadoraReembolso(historicoMock, planoStub, auditoriaMock, autorizadorMock);
         Consulta consulta = ConsultaHelper.criarConsulta("Carlos", 100.0); // 100 * 80% = 80
 
@@ -104,7 +103,7 @@ class CalculadoraReembolsoTest {
         assertEquals(80.0, valorReembolsado);
     }
     
-    // Etapa 7: Teste com um Spy (simulado aqui com Mockito.verify)
+    // Etapa 7: Teste com um Spy
     @Test
     @DisplayName("[Etapa 7] Deve chamar o serviço de auditoria ao calcular")
     void deveChamarServicoDeAuditoria() {
@@ -113,7 +112,7 @@ class CalculadoraReembolsoTest {
 
         calculadora.calcular(consulta);
 
-        // Verificamos que a auditoria foi chamada com os parâmetros corretos
+        // Verifica que a auditoria foi chamada com os parâmetros corretos
         verify(auditoriaMock).registrarCalculo(consulta, 50.0);
     }
 
@@ -124,7 +123,7 @@ class CalculadoraReembolsoTest {
         Consulta consulta = ConsultaHelper.consultaPadrao();
         when(autorizadorMock.autorizar(consulta)).thenReturn(false);
 
-        // Verificamos se a exceção correta é lançada
+        // Verifica se a exceção correta é lançada
         assertThrows(ReembolsoNaoAutorizadoException.class, () -> {
             calculadora.calcular(consulta);
         });
@@ -139,7 +138,6 @@ class CalculadoraReembolsoTest {
 
         double valorReembolsado = calculadora.calcular(consulta);
         
-        // assertEquals(33.333, valorReembolsado) poderia falhar
         assertEquals(33.333, valorReembolsado, 0.01); // O terceiro parâmetro é a margem
     }
 
@@ -155,7 +153,7 @@ class CalculadoraReembolsoTest {
 
         assertEquals(150.0, valorReembolsado);
         
-        // Verificamos também que a auditoria registrou o valor com o teto
+        // Verifica também que a auditoria registrou o valor com o teto
         verify(auditoriaMock).registrarCalculo(consultaCara, 150.0);
     }
     
@@ -166,7 +164,6 @@ class CalculadoraReembolsoTest {
         // 1. Helper para criar consulta
         Consulta consulta = ConsultaHelper.criarConsulta("Mariana", 500.0);
         
-        // 2. Mock (Mockito) para autorização
         when(autorizadorMock.autorizar(consulta)).thenReturn(true);
         
         // 3. Stub (classe interna) para o plano de saúde (80% de cobertura)
