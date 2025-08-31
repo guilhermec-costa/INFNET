@@ -17,9 +17,6 @@ import com.infnet.test_app.service.Auditoria;
 import com.infnet.test_app.service.AutorizadorReembolso;
 import com.infnet.test_app.service.PlanoSaude;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
@@ -45,8 +42,6 @@ class CalculadoraReembolsoTest {
 
     @BeforeEach
     void setUp() {
-        // Garante que a autorização seja verdadeira por padrão na maioria dos testes.
-        // Testes específicos podem sobrescrever esse comportamento.
         when(autorizadorMock.autorizar(any(Consulta.class))).thenReturn(true);
     }
 
@@ -75,7 +70,6 @@ class CalculadoraReembolsoTest {
         assertEquals(0.0, valorReembolsado);
     }
 
-    // Etapa 5: Teste com um Fake (simulado aqui com Mockito.verify)
     @Test
     @DisplayName("[Etapa 5] Deve registrar a consulta no histórico ao calcular")
     void deveRegistrarConsultaNoHistorico() {
@@ -128,7 +122,6 @@ class CalculadoraReembolsoTest {
     @DisplayName("[Etapa 8] Deve lançar exceção quando reembolso não for autorizado")
     void deveLancarExcecaoParaReembolsoNaoAutorizado() {
         Consulta consulta = ConsultaHelper.consultaPadrao();
-        // Sobrescrevemos o comportamento padrão para este teste
         when(autorizadorMock.autorizar(consulta)).thenReturn(false);
 
         // Verificamos se a exceção correta é lançada
@@ -181,10 +174,8 @@ class CalculadoraReembolsoTest {
         PlanoSaude planoStub = new PlanoSaudeStub80();
         CalculadoraReembolso calculadoraIntegrada = new CalculadoraReembolso(historicoMock, planoStub, auditoriaMock, autorizadorMock);
 
-        // Ação
         double valorReembolsado = calculadoraIntegrada.calcular(consulta);
 
-        // Verificação
         assertEquals(150.0, valorReembolsado, "O valor deveria ser travado no teto de R$150");
 
         // 4. Verificação de interações com os Mocks
