@@ -7,7 +7,6 @@ public class Endereco {
     private String cep;
     private String cidade;
 
-    // Construtor, Getters e Setters
     public Endereco(long id, String logradouro, String numero, String cep, String cidade) {
         this.id = id;
         this.logradouro = logradouro;

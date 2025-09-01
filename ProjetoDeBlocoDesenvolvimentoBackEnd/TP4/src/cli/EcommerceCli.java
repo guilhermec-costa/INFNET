@@ -5,7 +5,6 @@ import src.service.AutenticacaoService;
 import src.service.ClienteService;
 import src.service.PedidoService;
 import src.repository.IProdutoRepository;
-import src.repository.ProdutoRepositoryInMemory;
 
 import java.util.ArrayList;
 import java.util.List;
