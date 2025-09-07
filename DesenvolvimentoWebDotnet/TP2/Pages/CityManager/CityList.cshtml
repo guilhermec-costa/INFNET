@@ -1,0 +1,18 @@
+@page
+@model RazorPagesTurismo.Pages.CityManager.CityListModel
+@{
+    ViewData["Title"] = "Lista de Cidades";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<ul>
+    @foreach (var city in Model.Cities)
+    {
+        <li>
+            <a asp-page="/CityManager/CityDetails" asp-route-cityName="@city">
+                Ver detalhes de @city
+            </a>
+        </li>
+    }
+</ul>

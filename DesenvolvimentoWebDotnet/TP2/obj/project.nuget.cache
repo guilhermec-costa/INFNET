@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8PcTglBsOTI=",
+  "success": true,
+  "projectFilePath": "/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/TP2/TP2.csproj",
+  "expectedPackageFiles": [
+    "/home/guichina/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.4/microsoft.aspnetcore.app.ref.9.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

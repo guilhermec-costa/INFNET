@@ -1,0 +1,43 @@
+@page
+@model RazorPagesTurismo.Pages.CountryManager.CreateMultipleCountriesModel
+@{
+    ViewData["Title"] = "Cadastrar Múltiplos Países";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <table>
+        <thead>
+            <tr>
+                <th>Nome do País</th>
+                <th>Código do País</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.Countries.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <input asp-for="Countries[i].CountryName" />
+                    </td>
+                    <td>
+                        <input asp-for="Countries[i].CountryCode" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit">Enviar Países</button>
+</form>
+
+@if (Model.SubmittedCountries != null && Model.SubmittedCountries.Any())
+{
+    <hr />
+    <h3>Países Submetidos:</h3>
+    <ul>
+        @foreach (var country in Model.SubmittedCountries)
+        {
+            <li>@country.CountryName (@country.CountryCode)</li>
+        }
+    </ul>
+}

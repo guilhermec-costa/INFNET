@@ -1,0 +1,26 @@
+@page
+@model RazorPagesTurismo.Pages.CityManager.CreateCityModel
+@{
+    ViewData["Title"] = "Criar Cidade (Validação)";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="Input.CityName">Nome da Cidade:</label>
+        <input asp-for="Input.CityName" />
+        <span asp-validation-for="Input.CityName" class="text-danger"></span>
+    </div>
+    <button type="submit">Enviar</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <hr />
+    <h3 class="text-success">@Model.SuccessMessage</h3>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

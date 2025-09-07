@@ -1,0 +1,22 @@
+@page
+@model RazorPagesTurismo.Pages.ListNotesModel
+@{
+    ViewData["Title"] = "Anotações Salvas";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.FileNames != null && Model.FileNames.Any())
+{
+    <ul>
+        @foreach (var fileName in Model.FileNames)
+        {
+            <li>
+                <a asp-page="/ViewNote" asp-route-filename="@fileName">@fileName</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>Nenhuma anotação encontrada.</p>
+}

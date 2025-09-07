@@ -1,0 +1,11 @@
+@page "{filename}"
+@model RazorPagesTurismo.Pages.ViewNoteModel
+@{
+    ViewData["Title"] = $"Conteúdo de {Model.NoteFileName}";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<pre style="white-space: pre-wrap; background-color: #f0f0f0; padding: 15px; border: 1px solid #ccc;">@Model.FileContent</pre>
+
+<a asp-page="/ListNotes">Voltar para a lista</a>

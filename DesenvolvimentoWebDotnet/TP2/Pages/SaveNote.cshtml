@@ -1,0 +1,26 @@
+@page
+@model RazorPagesTurismo.Pages.SaveNoteModel
+@{
+    ViewData["Title"] = "Salvar Anotação";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <textarea asp-for="Input.Content" rows="10" cols="50"></textarea>
+    <span asp-validation-for="Input.Content" class="text-danger"></span>
+    <br />
+    <button type="submit">Salvar em Arquivo</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.DownloadLink))
+{
+    <hr />
+    <p>
+        Arquivo salvo com sucesso!
+        <a href="@Model.DownloadLink" target="_blank">Clique aqui para ver o arquivo.</a>
+    </p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

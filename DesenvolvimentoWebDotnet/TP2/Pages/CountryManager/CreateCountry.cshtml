@@ -1,0 +1,32 @@
+@page
+@model RazorPagesTurismo.Pages.CountryManager.CreateCountryModel
+@{
+    ViewData["Title"] = "Criar País";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="Input.CountryName">Nome do País:</label>
+        <input asp-for="Input.CountryName" />
+        <span asp-validation-for="Input.CountryName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Input.CountryCode">Código do País (ISO):</label>
+        <input asp-for="Input.CountryCode" />
+        <span asp-validation-for="Input.CountryCode" class="text-danger"></span>
+    </div>
+    <button type="submit">Cadastrar</button>
+</form>
+
+@if (Model.CreatedCountry != null)
+{
+    <hr />
+    <h3>País Criado:</h3>
+    <p>Nome: @Model.CreatedCountry.CountryName</p>
+    <p>Código: @Model.CreatedCountry.CountryCode</p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
