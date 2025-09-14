@@ -1,0 +1,33 @@
+﻿@page "/property/edit/{id:int}"
+@model TP3.Pages.EditPropertyModel
+@{
+    ViewData["Title"] = "Editar Propriedade";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h4>@Model.Property.Name</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Property.Id" />
+            <input type="hidden" asp-for="Property.CityId" />
+
+            <div class="form-group mb-3">
+                <label asp-for="Property.Name" class="control-label"></label>
+                <input asp-for="Property.Name" class="form-control" />
+                <span asp-validation-for="Property.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Property.PricePerNight" class="control-label"></label>
+                <input asp-for="Property.PricePerNight" class="form-control" />
+                <span asp-validation-for="Property.PricePerNight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-page="/Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

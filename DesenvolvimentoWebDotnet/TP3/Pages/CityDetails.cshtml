@@ -1,0 +1,53 @@
+﻿@page "/city/{name}"
+@model TP3.Pages.CityDetailsModel
+@{
+    ViewData["Title"] = $"Detalhes de {Model.City?.Name}";
+}
+
+@if (Model.City != null)
+{
+    <h1>Detalhes de: @Model.City.Name</h1>
+    <h4>País: @Model.City.Country?.CountryName</h4>
+
+    <hr />
+
+    <h3>Propriedades em @Model.City.Name</h3>
+    @if (Model.City.Properties.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome da Propriedade</th>
+                    <th>Preço por Noite</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var prop in Model.City.Properties)
+                {
+                    <tr>
+                      <td>@prop.Name</td>
+                      <td>@prop.PricePerNight.ToString("C")</td>
+                      <td>
+                        <a asp-page="/EditProperty" asp-route-id="@prop.Id" class="btn btn-sm btn-info">Editar</a>
+                        <form method="post" asp-page-handler="Delete" style="display:inline;">
+                            <input type="hidden" name="propertyId" value="@prop.Id" />
+                            <input type="hidden" name="cityName" value="@Model.City.Name" />
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</button>
+                        </form>
+                    </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Nenhuma propriedade cadastrada para esta cidade.</p>
+    }
+}
+else
+{
+    <h1>Cidade não encontrada.</h1>
+}
+
+<a asp-page="/Index">Voltar para a lista</a>

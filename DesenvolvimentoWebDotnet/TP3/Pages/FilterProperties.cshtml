@@ -1,0 +1,62 @@
+﻿@page
+@model TP3.Pages.FilterPropertiesModel
+@{
+    ViewData["Title"] = "Filtrar Propriedades";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="card mb-4">
+    <div class="card-header">Filtros</div>
+    <div class="card-body">
+        <form method="get">
+            <div class="row">
+                <div class="col-md-3 form-group">
+                    <label asp-for="MinPrice" class="control-label">Preço Mínimo</label>
+                    <input asp-for="MinPrice" class="form-control" />
+                </div>
+                <div class="col-md-3 form-group">
+                    <label asp-for="MaxPrice" class="control-label">Preço Máximo</label>
+                    <input asp-for="MaxPrice" class="form-control" />
+                </div>
+                <div class="col-md-3 form-group">
+                    <label asp-for="CityName" class="control-label">Nome da Cidade</label>
+                    <input asp-for="CityName" class="form-control" />
+                </div>
+                <div class="col-md-3 form-group">
+                    <label asp-for="PropertyName" class="control-label">Nome da Propriedade</label>
+                    <input asp-for="PropertyName" class="form-control" />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Filtrar</button>
+                    <a asp-page="/FilterProperties" class="btn btn-secondary">Limpar Filtros</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<h3>Resultados da Busca</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Propriedade</th>
+            <th>Cidade</th>
+            <th>País</th>
+            <th>Preço/Noite</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Properties)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.City?.Name</td>
+                <td>@item.City?.Country?.CountryName</td>
+                <td>@item.PricePerNight.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

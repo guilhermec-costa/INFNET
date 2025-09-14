@@ -1,0 +1,40 @@
+﻿@page
+@model TP3.Pages.CreatePropertyModel
+@{
+    ViewData["Title"] = "Cadastrar Propriedade";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Property.Name" class="control-label"></label>
+                <input asp-for="Property.Name" class="form-control" />
+                <span asp-validation-for="Property.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Property.PricePerNight" class="control-label"></label>
+                <input asp-for="Property.PricePerNight" class="form-control" />
+                <span asp-validation-for="Property.PricePerNight" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Property.CityId" class="control-label">Cidade</label>
+                <select asp-for="Property.CityId" class="form-control" asp-items="@Model.CityOptions">
+                    <option value="">-- Selecione uma Cidade --</option>
+                </select>
+                <span asp-validation-for="Property.CityId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

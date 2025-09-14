@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bem-vindo ao CityBreaks</h1>
+    <p>Conheça nossas cidades e propriedades.</p>
+</div>
+
+<div class="row">
+    @foreach (var city in Model.Cities)
+    {
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>
+                        <a asp-page="/CityDetails" asp-route-name="@city.Name">
+                            @city.Name - @city.Country?.CountryName
+                        </a>
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <h5>Propriedades Disponíveis: @city.Properties.Count</h5>
+                    <ul>
+                        @foreach (var prop in city.Properties)
+                        {
+                            <li>@prop.Name - @prop.PricePerNight.ToString("C")</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+</div>
