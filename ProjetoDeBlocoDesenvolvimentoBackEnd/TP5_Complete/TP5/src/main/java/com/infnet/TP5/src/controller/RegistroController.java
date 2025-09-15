@@ -25,7 +25,6 @@ public class RegistroController {
                 request.senha
             );
             
-            // Retorna apenas dados seguros (sem senha)
             var response = new RegistroResponse(
                 novoCliente.getId(),
                 novoCliente.getNome(),
