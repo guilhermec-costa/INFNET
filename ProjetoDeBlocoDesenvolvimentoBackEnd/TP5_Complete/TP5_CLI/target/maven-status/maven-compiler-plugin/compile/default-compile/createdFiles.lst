@@ -1,0 +1,5 @@
+com/infnet/TP5_CLI/session/SessionManager.class
+com/infnet/TP5_CLI/util/ConsoleUtil.class
+com/infnet/TP5_CLI/client/ApiClient$ApiResponse.class
+com/infnet/TP5_CLI/client/ApiClient.class
+com/infnet/TP5_CLI/EcommerceCLI.class

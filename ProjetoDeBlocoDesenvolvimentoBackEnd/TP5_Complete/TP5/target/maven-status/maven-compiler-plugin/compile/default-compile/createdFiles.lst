@@ -1,0 +1,8 @@
+com/infnet/TP5/src/repository/IClienteRepository.class
+com/infnet/TP5/src/model/Endereco.class
+com/infnet/TP5/src/model/Cliente.class
+com/infnet/TP5/src/service/AutenticacaoService.class
+com/infnet/TP5/src/model/FormaPagamento.class
+com/infnet/TP5/src/controller/ClienteController.class
+com/infnet/TP5/src/service/ClienteService.class
+com/infnet/TP5/src/controller/ClienteController$LoginRequest.class
