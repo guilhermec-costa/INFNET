@@ -1,0 +1,66 @@
+@page
+@model AT.Pages.PacotesTuristicos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PacoteTuristico[0].Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PacoteTuristico[0].DataInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PacoteTuristico[0].DuracaoDias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PacoteTuristico[0].CapacidadeMaxima)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PacoteTuristico[0].Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PacoteTuristico[0].IsDeleted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PacoteTuristico) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DuracaoDias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapacidadeMaxima)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

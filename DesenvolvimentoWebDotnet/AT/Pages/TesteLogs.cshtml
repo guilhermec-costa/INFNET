@@ -1,0 +1,34 @@
+@page
+@model AgenciaTurismo.Pages.TesteLogsModel
+@{
+    ViewData["Title"] = "Teste de Multicast Delegate para Logs";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    Ao carregar esta página, um <strong>multicast delegate</strong> foi acionado, registrando a mesma mensagem em três locais diferentes:
+</p>
+<ol>
+    <li>No console do servidor (verifique a janela do terminal onde você executou <code>dotnet run</code>).</li>
+    <li>Em um arquivo de texto na raiz do projeto (<code>system_log.txt</code>).</li>
+    <li>Na memória (exibido abaixo).</li>
+</ol>
+
+<h3 class="mt-4">Logs Registrados em Memória:</h3>
+
+@if (Model.MensagensLogMemoria != null && Model.MensagensLogMemoria.Any())
+{
+    <div class="card">
+        <div class="card-body bg-light">
+            <pre><code>@foreach (var msg in Model.MensagensLogMemoria)
+{
+    @msg<br />
+}</code></pre>
+        </div>
+    </div>
+}
+else
+{
+    <p>Nenhuma mensagem de log encontrada na memória.</p>
+}

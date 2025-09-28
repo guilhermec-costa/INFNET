@@ -1,0 +1,34 @@
+@page
+@model AgenciaTurismo.Pages.CalculoTotalReservaModel
+@{
+    ViewData["Title"] = "Cálculo de Valor Total da Reserva";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    Esta página demonstra o uso de um <code>Func&lt;int, decimal, decimal&gt;</code> para calcular o valor total de uma reserva com base nos dias de duração e no preço da diária.
+</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label for="duracaoDias">Duração do Pacote (dias):</label>
+                <input type="number" class="form-control" name="duracaoDias" />
+            </div>
+            <div class="form-group mt-2">
+                <label for="precoDiaria">Preço da Diária:</label>
+                <input type="number" step="0.01" class="form-control" name="precoDiaria" />
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Calcular Valor Total</button>
+        </form>
+
+        @if (Model.ValorTotal > 0)
+        {
+            <div class="alert alert-success mt-3">
+                <h4>Valor Total Calculado: @Model.ValorTotal.ToString("C")</h4>
+            </div>
+        }
+    </div>
+</div>

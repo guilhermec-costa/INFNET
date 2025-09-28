@@ -1,0 +1,117 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AT
+build_property.RootNamespace = AT
+build_property.ProjectDir = /home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/CalculoDesconto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2FsY3Vsb0Rlc2NvbnRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/CalculoTotalReserva.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2FsY3Vsb1RvdGFsUmVzZXJ2YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/Clientes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2xpZW50ZXMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/Clientes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2xpZW50ZXMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/Clientes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2xpZW50ZXMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/Clientes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2xpZW50ZXMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/Clientes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2xpZW50ZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/PacotesTuristicos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGFjb3Rlc1R1cmlzdGljb3MvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/PacotesTuristicos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGFjb3Rlc1R1cmlzdGljb3MvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/PacotesTuristicos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGFjb3Rlc1R1cmlzdGljb3MvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/PacotesTuristicos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGFjb3Rlc1R1cmlzdGljb3MvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/PacotesTuristicos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUGFjb3Rlc1R1cmlzdGljb3MvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/TesteLogs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGVzdGVMb2dzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/ViewNotes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVmlld05vdGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/guichina/dev/infnet/DesenvolvimentoWebDotnet/AT/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-009cu4sudb
