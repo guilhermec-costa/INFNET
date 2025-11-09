@@ -1,0 +1,12 @@
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/SistemaCLI.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/domain/Categoria.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/domain/NomeProduto.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/domain/Preco.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/domain/Produto.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/domain/ProdutoId.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/domain/Quantidade.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/exception/ProdutoDuplicadoException.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/exception/ProdutoNaoEncontradoException.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/repository/ProdutoRepositorio.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/repository/ProdutoRepositorioMemoria.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/crud-produtos/src/main/java/com/sistema/service/ProdutoServico.java

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProdutoId.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crud-produtos</a> &gt; <a href="index.source.html" class="el_package">com.sistema.domain</a> &gt; <span class="el_source">ProdutoId.java</span></div><h1>ProdutoId.java</h1><pre class="source lang-java linenums">package com.sistema.domain;
+
+import java.util.Objects;
+import java.util.UUID;
+
+public final class ProdutoId {
+    private final String valor;
+
+<span class="fc" id="L9">    private ProdutoId(String valor) {</span>
+<span class="pc bpc" id="L10" title="2 of 4 branches missed.">        if (valor == null || valor.isBlank()) {</span>
+<span class="nc" id="L11">            throw new IllegalArgumentException(&quot;ID do produto não pode ser nulo ou vazio&quot;);</span>
+        }
+<span class="fc" id="L13">        this.valor = valor;</span>
+<span class="fc" id="L14">    }</span>
+
+    public static ProdutoId gerar() {
+<span class="fc" id="L17">        return new ProdutoId(UUID.randomUUID().toString());</span>
+    }
+
+    public static ProdutoId de(String valor) {
+<span class="nc" id="L21">        return new ProdutoId(valor);</span>
+    }
+
+    public String getValor() {
+<span class="fc" id="L25">        return valor;</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L31" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L32">        ProdutoId produtoId = (ProdutoId) o;</span>
+<span class="fc" id="L33">        return Objects.equals(valor, produtoId.valor);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L38">        return Objects.hash(valor);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L43">        return valor;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

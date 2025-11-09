@@ -1,0 +1,7 @@
+com/sistema/domain/CategoriaTest.class
+com/sistema/service/ProdutoServicoTest.class
+com/sistema/domain/PrecoTest.class
+com/sistema/domain/ProdutoTest.class
+com/sistema/domain/QuantidadeTest.class
+com/sistema/repository/ProdutoRepositorioMemoriaTest.class
+com/sistema/domain/NomeProdutoTest.class

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Preco.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crud-produtos</a> &gt; <a href="index.source.html" class="el_package">com.sistema.domain</a> &gt; <span class="el_source">Preco.java</span></div><h1>Preco.java</h1><pre class="source lang-java linenums">package com.sistema.domain;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Objects;
+
+public final class Preco {
+<span class="fc" id="L8">    private static final BigDecimal VALOR_MINIMO = BigDecimal.ZERO;</span>
+<span class="fc" id="L9">    private static final BigDecimal VALOR_MAXIMO = new BigDecimal(&quot;999999.99&quot;);</span>
+    private static final int CASAS_DECIMAIS = 2;
+
+    private final BigDecimal valor;
+
+<span class="fc" id="L14">    private Preco(BigDecimal valor) {</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">        if (valor == null) {</span>
+<span class="fc" id="L16">            throw new IllegalArgumentException(&quot;Preço não pode ser nulo&quot;);</span>
+        }
+        
+<span class="fc" id="L19">        BigDecimal valorArredondado = valor.setScale(CASAS_DECIMAIS, RoundingMode.HALF_UP);</span>
+        
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        if (valorArredondado.compareTo(VALOR_MINIMO) &lt; 0) {</span>
+<span class="fc" id="L22">            throw new IllegalArgumentException(&quot;Preço não pode ser negativo&quot;);</span>
+        }
+        
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (valorArredondado.compareTo(VALOR_MAXIMO) &gt; 0) {</span>
+<span class="fc" id="L26">            throw new IllegalArgumentException(&quot;Preço não pode exceder &quot; + VALOR_MAXIMO);</span>
+        }
+        
+<span class="fc" id="L29">        this.valor = valorArredondado;</span>
+<span class="fc" id="L30">    }</span>
+
+    public static Preco de(BigDecimal valor) {
+<span class="fc" id="L33">        return new Preco(valor);</span>
+    }
+
+    public static Preco de(double valor) {
+<span class="fc" id="L37">        return new Preco(BigDecimal.valueOf(valor));</span>
+    }
+
+    public BigDecimal getValor() {
+<span class="fc" id="L41">        return valor;</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L47" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L48">        Preco preco = (Preco) o;</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        return valor.compareTo(preco.valor) == 0;</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L54">        return Objects.hash(valor);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L59">        return String.format(&quot;R$ %.2f&quot;, valor);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+crud-produtos,com.sistema,SistemaCLI,457,0,20,0,142,0,24,0,11,0
+crud-produtos,com.sistema.domain,NomeProduto,2,78,2,12,0,18,2,11,0,6
+crud-produtos,com.sistema.domain,Categoria,0,127,0,8,0,22,0,9,0,5
+crud-produtos,com.sistema.domain,Produto,32,168,2,14,1,33,3,20,1,14
+crud-produtos,com.sistema.domain,ProdutoId,15,50,4,6,3,11,6,6,2,5
+crud-produtos,com.sistema.domain,Quantidade,5,85,4,8,0,18,4,11,0,9
+crud-produtos,com.sistema.domain,Preco,5,101,4,10,0,21,4,11,0,8
+crud-produtos,com.sistema.exception,ProdutoDuplicadoException,12,0,0,0,4,0,2,0,2,0
+crud-produtos,com.sistema.exception,ProdutoNaoEncontradoException,3,9,0,0,1,3,1,1,1,1
+crud-produtos,com.sistema.service,ProdutoServico,6,90,1,5,1,22,1,11,0,9
+crud-produtos,com.sistema.repository,ProdutoRepositorioMemoria,0,100,0,12,0,25,0,14,0,8

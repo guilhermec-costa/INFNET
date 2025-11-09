@@ -1,0 +1,12 @@
+com/sistema/domain/Produto.class
+com/sistema/service/ProdutoServico.class
+com/sistema/domain/NomeProduto.class
+com/sistema/repository/ProdutoRepositorioMemoria.class
+com/sistema/repository/ProdutoRepositorio.class
+com/sistema/domain/Quantidade.class
+com/sistema/exception/ProdutoDuplicadoException.class
+com/sistema/domain/Preco.class
+com/sistema/exception/ProdutoNaoEncontradoException.class
+com/sistema/SistemaCLI.class
+com/sistema/domain/Categoria.class
+com/sistema/domain/ProdutoId.class

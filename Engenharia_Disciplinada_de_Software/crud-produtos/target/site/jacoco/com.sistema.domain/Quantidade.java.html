@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Quantidade.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crud-produtos</a> &gt; <a href="index.source.html" class="el_package">com.sistema.domain</a> &gt; <span class="el_source">Quantidade.java</span></div><h1>Quantidade.java</h1><pre class="source lang-java linenums">package com.sistema.domain;
+
+import java.util.Objects;
+
+public final class Quantidade {
+    private static final int QUANTIDADE_MINIMA = 0;
+    private static final int QUANTIDADE_MAXIMA = 999999;
+
+    private final int valor;
+
+<span class="fc" id="L11">    private Quantidade(int valor) {</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        if (valor &lt; QUANTIDADE_MINIMA) {</span>
+<span class="fc" id="L13">            throw new IllegalArgumentException(</span>
+                &quot;Quantidade não pode ser menor que &quot; + QUANTIDADE_MINIMA
+            );
+        }
+        
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        if (valor &gt; QUANTIDADE_MAXIMA) {</span>
+<span class="fc" id="L19">            throw new IllegalArgumentException(</span>
+                &quot;Quantidade não pode ser maior que &quot; + QUANTIDADE_MAXIMA
+            );
+        }
+        
+<span class="fc" id="L24">        this.valor = valor;</span>
+<span class="fc" id="L25">    }</span>
+
+    public static Quantidade de(int valor) {
+<span class="fc" id="L28">        return new Quantidade(valor);</span>
+    }
+
+    public static Quantidade zero() {
+<span class="fc" id="L32">        return new Quantidade(QUANTIDADE_MINIMA);</span>
+    }
+
+    public int getValor() {
+<span class="fc" id="L36">        return valor;</span>
+    }
+
+    public Quantidade adicionar(int quantidade) {
+<span class="fc" id="L40">        return new Quantidade(this.valor + quantidade);</span>
+    }
+
+    public Quantidade subtrair(int quantidade) {
+<span class="fc" id="L44">        return new Quantidade(this.valor - quantidade);</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L50" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L51">        Quantidade that = (Quantidade) o;</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        return valor == that.valor;</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L57">        return Objects.hash(valor);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L62">        return String.valueOf(valor);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

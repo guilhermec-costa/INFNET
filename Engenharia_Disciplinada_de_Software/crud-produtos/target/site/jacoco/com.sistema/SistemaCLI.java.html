@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SistemaCLI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crud-produtos</a> &gt; <a href="index.source.html" class="el_package">com.sistema</a> &gt; <span class="el_source">SistemaCLI.java</span></div><h1>SistemaCLI.java</h1><pre class="source lang-java linenums">package com.sistema;
+
+import com.sistema.domain.*;
+import com.sistema.exception.ProdutoNaoEncontradoException;
+import com.sistema.repository.ProdutoRepositorioMemoria;
+import com.sistema.service.ProdutoServico;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Scanner;
+
+public class SistemaCLI {
+    private final ProdutoServico servico;
+    private final Scanner scanner;
+
+<span class="nc" id="L16">    public SistemaCLI() {</span>
+<span class="nc" id="L17">        this.servico = new ProdutoServico(new ProdutoRepositorioMemoria());</span>
+<span class="nc" id="L18">        this.scanner = new Scanner(System.in);</span>
+<span class="nc" id="L19">    }</span>
+
+    public void executar() {
+<span class="nc" id="L22">        boolean continuar = true;</span>
+
+<span class="nc" id="L24">        System.out.println(&quot;=== Sistema de Gerenciamento de Produtos ===&quot;);</span>
+
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        while (continuar) {</span>
+<span class="nc" id="L27">            exibirMenu();</span>
+<span class="nc" id="L28">            String opcao = scanner.nextLine().trim();</span>
+
+<span class="nc bnc" id="L30" title="All 8 branches missed.">            switch (opcao) {</span>
+                case &quot;1&quot;:
+<span class="nc" id="L32">                    criarProduto();</span>
+<span class="nc" id="L33">                    break;</span>
+                case &quot;2&quot;:
+<span class="nc" id="L35">                    buscarProduto();</span>
+<span class="nc" id="L36">                    break;</span>
+                case &quot;3&quot;:
+<span class="nc" id="L38">                    listarProdutos();</span>
+<span class="nc" id="L39">                    break;</span>
+                case &quot;4&quot;:
+<span class="nc" id="L41">                    atualizarProduto();</span>
+<span class="nc" id="L42">                    break;</span>
+                case &quot;5&quot;:
+<span class="nc" id="L44">                    deletarProduto();</span>
+<span class="nc" id="L45">                    break;</span>
+                case &quot;6&quot;:
+<span class="nc" id="L47">                    contarProdutos();</span>
+<span class="nc" id="L48">                    break;</span>
+                case &quot;0&quot;:
+<span class="nc" id="L50">                    continuar = false;</span>
+<span class="nc" id="L51">                    System.out.println(&quot;Encerrando sistema...&quot;);</span>
+<span class="nc" id="L52">                    break;</span>
+                default:
+<span class="nc" id="L54">                    System.out.println(&quot;Opção inválida!&quot;);</span>
+            }
+
+<span class="nc bnc" id="L57" title="All 2 branches missed.">            if (continuar) {</span>
+<span class="nc" id="L58">                System.out.println();</span>
+            }
+<span class="nc" id="L60">        }</span>
+
+<span class="nc" id="L62">        scanner.close();</span>
+<span class="nc" id="L63">    }</span>
+
+    private void exibirMenu() {
+<span class="nc" id="L66">        System.out.println(&quot;\n--- Menu ---&quot;);</span>
+<span class="nc" id="L67">        System.out.println(&quot;1. Criar Produto&quot;);</span>
+<span class="nc" id="L68">        System.out.println(&quot;2. Buscar Produto&quot;);</span>
+<span class="nc" id="L69">        System.out.println(&quot;3. Listar Produtos&quot;);</span>
+<span class="nc" id="L70">        System.out.println(&quot;4. Atualizar Produto&quot;);</span>
+<span class="nc" id="L71">        System.out.println(&quot;5. Deletar Produto&quot;);</span>
+<span class="nc" id="L72">        System.out.println(&quot;6. Contar Produtos&quot;);</span>
+<span class="nc" id="L73">        System.out.println(&quot;0. Sair&quot;);</span>
+<span class="nc" id="L74">        System.out.print(&quot;Escolha uma opção: &quot;);</span>
+<span class="nc" id="L75">    }</span>
+
+    private void criarProduto() {
+        try {
+<span class="nc" id="L79">            System.out.println(&quot;\n--- Criar Produto ---&quot;);</span>
+
+<span class="nc" id="L81">            System.out.print(&quot;Nome: &quot;);</span>
+<span class="nc" id="L82">            String nome = scanner.nextLine();</span>
+
+<span class="nc" id="L84">            System.out.print(&quot;Preço: &quot;);</span>
+<span class="nc" id="L85">            String precoStr = scanner.nextLine();</span>
+<span class="nc" id="L86">            BigDecimal preco = new BigDecimal(precoStr);</span>
+
+<span class="nc" id="L88">            System.out.print(&quot;Quantidade: &quot;);</span>
+<span class="nc" id="L89">            int quantidade = Integer.parseInt(scanner.nextLine());</span>
+
+<span class="nc" id="L91">            System.out.println(&quot;Categorias disponíveis:&quot;);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">            for (Categoria cat : Categoria.values()) {</span>
+<span class="nc" id="L93">                System.out.println(&quot;- &quot; + cat.getDescricao());</span>
+            }
+<span class="nc" id="L95">            System.out.print(&quot;Categoria: &quot;);</span>
+<span class="nc" id="L96">            String categoriaStr = scanner.nextLine();</span>
+
+<span class="nc" id="L98">            Produto produto = servico.criar(</span>
+<span class="nc" id="L99">                    NomeProduto.de(nome),</span>
+<span class="nc" id="L100">                    Preco.de(preco),</span>
+<span class="nc" id="L101">                    Quantidade.de(quantidade),</span>
+<span class="nc" id="L102">                    Categoria.fromDescricao(categoriaStr)</span>
+            );
+
+<span class="nc" id="L105">            System.out.println(&quot;Produto criado com sucesso!&quot;);</span>
+<span class="nc" id="L106">            System.out.println(&quot;ID: &quot; + produto.getId().getValor());</span>
+
+<span class="nc" id="L108">        } catch (Exception e) {</span>
+<span class="nc" id="L109">            System.out.println(&quot;Erro ao criar produto: &quot; + e.getMessage());</span>
+<span class="nc" id="L110">        }</span>
+<span class="nc" id="L111">    }</span>
+
+    private void buscarProduto() {
+        try {
+<span class="nc" id="L115">            System.out.println(&quot;\n--- Buscar Produto ---&quot;);</span>
+<span class="nc" id="L116">            System.out.print(&quot;ID do produto: &quot;);</span>
+<span class="nc" id="L117">            String id = scanner.nextLine();</span>
+
+<span class="nc" id="L119">            Produto produto = servico.buscar(ProdutoId.de(id));</span>
+<span class="nc" id="L120">            exibirProduto(produto);</span>
+
+<span class="nc" id="L122">        } catch (ProdutoNaoEncontradoException e) {</span>
+<span class="nc" id="L123">            System.out.println(&quot;Erro: &quot; + e.getMessage());</span>
+<span class="nc" id="L124">        } catch (Exception e) {</span>
+<span class="nc" id="L125">            System.out.println(&quot;Erro ao buscar produto: &quot; + e.getMessage());</span>
+<span class="nc" id="L126">        }</span>
+<span class="nc" id="L127">    }</span>
+
+    private void listarProdutos() {
+<span class="nc" id="L130">        System.out.println(&quot;\n--- Lista de Produtos ---&quot;);</span>
+<span class="nc" id="L131">        List&lt;Produto&gt; produtos = servico.listarTodos();</span>
+
+<span class="nc bnc" id="L133" title="All 2 branches missed.">        if (produtos.isEmpty()) {</span>
+<span class="nc" id="L134">            System.out.println(&quot;Nenhum produto cadastrado.&quot;);</span>
+<span class="nc" id="L135">            return;</span>
+        }
+
+<span class="nc bnc" id="L138" title="All 2 branches missed.">        for (Produto produto : produtos) {</span>
+<span class="nc" id="L139">            exibirProduto(produto);</span>
+<span class="nc" id="L140">            System.out.println(&quot;---&quot;);</span>
+<span class="nc" id="L141">        }</span>
+<span class="nc" id="L142">    }</span>
+
+    private void atualizarProduto() {
+        try {
+<span class="nc" id="L146">            System.out.println(&quot;\n--- Atualizar Produto ---&quot;);</span>
+<span class="nc" id="L147">            System.out.print(&quot;ID do produto: &quot;);</span>
+<span class="nc" id="L148">            String id = scanner.nextLine();</span>
+
+<span class="nc" id="L150">            Produto produtoExistente = servico.buscar(ProdutoId.de(id));</span>
+<span class="nc" id="L151">            System.out.println(&quot;Produto atual:&quot;);</span>
+<span class="nc" id="L152">            exibirProduto(produtoExistente);</span>
+
+<span class="nc" id="L154">            System.out.print(&quot;\nNovo nome: &quot;);</span>
+<span class="nc" id="L155">            String nome = scanner.nextLine();</span>
+
+<span class="nc" id="L157">            System.out.print(&quot;Novo preço: &quot;);</span>
+<span class="nc" id="L158">            String precoStr = scanner.nextLine();</span>
+<span class="nc" id="L159">            BigDecimal preco = new BigDecimal(precoStr);</span>
+
+<span class="nc" id="L161">            System.out.print(&quot;Nova quantidade: &quot;);</span>
+<span class="nc" id="L162">            int quantidade = Integer.parseInt(scanner.nextLine());</span>
+
+<span class="nc" id="L164">            System.out.println(&quot;Categorias disponíveis:&quot;);</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">            for (Categoria cat : Categoria.values()) {</span>
+<span class="nc" id="L166">                System.out.println(&quot;- &quot; + cat.getDescricao());</span>
+            }
+<span class="nc" id="L168">            System.out.print(&quot;Nova categoria: &quot;);</span>
+<span class="nc" id="L169">            String categoriaStr = scanner.nextLine();</span>
+
+<span class="nc" id="L171">            Produto produtoAtualizado = servico.atualizar(</span>
+<span class="nc" id="L172">                    ProdutoId.de(id),</span>
+<span class="nc" id="L173">                    NomeProduto.de(nome),</span>
+<span class="nc" id="L174">                    Preco.de(preco),</span>
+<span class="nc" id="L175">                    Quantidade.de(quantidade),</span>
+<span class="nc" id="L176">                    Categoria.fromDescricao(categoriaStr)</span>
+            );
+
+<span class="nc" id="L179">            System.out.println(&quot;Produto atualizado com sucesso!&quot;);</span>
+<span class="nc" id="L180">            exibirProduto(produtoAtualizado);</span>
+
+<span class="nc" id="L182">        } catch (ProdutoNaoEncontradoException e) {</span>
+<span class="nc" id="L183">            System.out.println(&quot;Erro: &quot; + e.getMessage());</span>
+<span class="nc" id="L184">        } catch (Exception e) {</span>
+<span class="nc" id="L185">            System.out.println(&quot;Erro ao atualizar produto: &quot; + e.getMessage());</span>
+<span class="nc" id="L186">        }</span>
+<span class="nc" id="L187">    }</span>
+
+    private void deletarProduto() {
+        try {
+<span class="nc" id="L191">            System.out.println(&quot;\n--- Deletar Produto ---&quot;);</span>
+<span class="nc" id="L192">            System.out.print(&quot;ID do produto: &quot;);</span>
+<span class="nc" id="L193">            String id = scanner.nextLine();</span>
+
+<span class="nc" id="L195">            servico.deletar(ProdutoId.de(id));</span>
+<span class="nc" id="L196">            System.out.println(&quot;Produto deletado com sucesso!&quot;);</span>
+
+<span class="nc" id="L198">        } catch (ProdutoNaoEncontradoException e) {</span>
+<span class="nc" id="L199">            System.out.println(&quot;Erro: &quot; + e.getMessage());</span>
+<span class="nc" id="L200">        } catch (Exception e) {</span>
+<span class="nc" id="L201">            System.out.println(&quot;Erro ao deletar produto: &quot; + e.getMessage());</span>
+<span class="nc" id="L202">        }</span>
+<span class="nc" id="L203">    }</span>
+
+    private void contarProdutos() {
+<span class="nc" id="L206">        long total = servico.contarProdutos();</span>
+<span class="nc" id="L207">        System.out.println(&quot;\n--- Total de Produtos ---&quot;);</span>
+<span class="nc" id="L208">        System.out.println(&quot;Total: &quot; + total + &quot; produto(s)&quot;);</span>
+<span class="nc" id="L209">    }</span>
+
+    private void exibirProduto(Produto produto) {
+<span class="nc" id="L212">        System.out.println(&quot;ID: &quot; + produto.getId().getValor());</span>
+<span class="nc" id="L213">        System.out.println(&quot;Nome: &quot; + produto.getNome().getValor());</span>
+<span class="nc" id="L214">        System.out.println(&quot;Preço: &quot; + produto.getPreco());</span>
+<span class="nc" id="L215">        System.out.println(&quot;Quantidade: &quot; + produto.getQuantidade());</span>
+<span class="nc" id="L216">        System.out.println(&quot;Categoria: &quot; + produto.getCategoria().getDescricao());</span>
+<span class="nc" id="L217">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L220">        SistemaCLI sistema = new SistemaCLI();</span>
+<span class="nc" id="L221">        sistema.executar();</span>
+<span class="nc" id="L222">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

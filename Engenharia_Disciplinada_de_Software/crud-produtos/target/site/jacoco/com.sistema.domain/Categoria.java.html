@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Categoria.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crud-produtos</a> &gt; <a href="index.source.html" class="el_package">com.sistema.domain</a> &gt; <span class="el_source">Categoria.java</span></div><h1>Categoria.java</h1><pre class="source lang-java linenums">package com.sistema.domain;
+
+<span class="fc" id="L3">public enum Categoria {</span>
+<span class="fc" id="L4">    ELETRONICOS(&quot;Eletrônicos&quot;),</span>
+<span class="fc" id="L5">    ALIMENTOS(&quot;Alimentos&quot;),</span>
+<span class="fc" id="L6">    VESTUARIO(&quot;Vestuário&quot;),</span>
+<span class="fc" id="L7">    MOVEIS(&quot;Móveis&quot;),</span>
+<span class="fc" id="L8">    LIVROS(&quot;Livros&quot;),</span>
+<span class="fc" id="L9">    BRINQUEDOS(&quot;Brinquedos&quot;),</span>
+<span class="fc" id="L10">    ESPORTES(&quot;Esportes&quot;),</span>
+<span class="fc" id="L11">    BELEZA(&quot;Beleza&quot;),</span>
+<span class="fc" id="L12">    AUTOMOTIVO(&quot;Automotivo&quot;),</span>
+<span class="fc" id="L13">    OUTROS(&quot;Outros&quot;);</span>
+
+    private final String descricao;
+
+<span class="fc" id="L17">    Categoria(String descricao) {</span>
+<span class="fc" id="L18">        this.descricao = descricao;</span>
+<span class="fc" id="L19">    }</span>
+
+    public String getDescricao() {
+<span class="fc" id="L22">        return descricao;</span>
+    }
+
+    public static Categoria fromDescricao(String descricao) {
+<span class="fc bfc" id="L26" title="All 4 branches covered.">        if (descricao == null || descricao.isBlank()) {</span>
+<span class="fc" id="L27">            throw new IllegalArgumentException(&quot;Descrição da categoria não pode ser nula ou vazia&quot;);</span>
+        }
+
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        for (Categoria categoria : values()) {</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            if (categoria.descricao.equalsIgnoreCase(descricao.trim())) {</span>
+<span class="fc" id="L32">                return categoria;</span>
+            }
+        }
+
+<span class="fc" id="L36">        throw new IllegalArgumentException(&quot;Categoria não encontrada: &quot; + descricao);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L41">        return descricao;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
