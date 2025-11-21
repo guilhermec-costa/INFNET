@@ -80,7 +80,7 @@ public class ContaBancaria {
     System.out.println("Exercício 8 - Command Query Separation (CQS)\n");
     System.out.println("=".repeat(70));
 
-    // Demonstração da ABORDAGEM CORRETA
+    // Demonstração da ABORDAGEM MELHORADA
     ContaBancaria conta = new ContaBancaria(1000.0);
     System.out.println("Saldo inicial: R$ " + conta.getSaldo());
 
@@ -111,7 +111,7 @@ public class ContaBancaria {
     }
     System.out.println("Saldo final: R$ " + conta.getSaldo());
 
-    // Demonstração do PROBLEMA da abordagem errada
+    // Demonstração do PROBLEMA da ABORDAGEM INCORRETA
     System.out.println("\n" + "=".repeat(70));
     System.out.println("PROBLEMA DA VERSÃO ORIGINAL (podeComprarERRADO):");
     System.out.println("=".repeat(70));

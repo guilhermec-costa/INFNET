@@ -38,7 +38,7 @@ public class AjustePreco {
   private static final double VALOR_DESCONTO = 10.0;
 
   /**
-   * ABORDAGEM ERRADA
+   * ABORDAGEM INCORRETA
    * public void aplicarDescontoErrado(Produto produto) {
    * produto.preco -= 10; // PROBLEMA: Mutação direta
    * }
@@ -52,7 +52,7 @@ public class AjustePreco {
    */
 
   /**
-   * ABORDAGEM CORRETA: Retorna um novo produto com desconto aplicado.
+   * ABORDAGEM MELHORADA: Retorna um novo produto com desconto aplicado.
    * O produto original permanece inalterado.
    */
   public Produto aplicarDesconto(Produto produto) {

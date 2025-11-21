@@ -66,7 +66,6 @@ compile: setup
 	@echo "==================================="
 	@echo ""
 
-# Executar todos os exercícios
 .PHONY: run
 run: all
 	@echo ""

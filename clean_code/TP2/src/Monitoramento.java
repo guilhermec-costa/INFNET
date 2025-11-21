@@ -95,7 +95,7 @@ public class Monitoramento {
     System.out.println("Exercício 10 - CQS em Sistema de Monitoramento\n");
     System.out.println("=".repeat(70));
 
-    // Demonstração da ABORDAGEM CORRETA
+    // Demonstração da ABORDAGEM MELHORADA
     Monitoramento monitor = new Monitoramento();
 
     System.out.println("--- Cenário 1: Uso correto (CQS) ---");

@@ -121,7 +121,7 @@ public class FilaMensagens {
     System.out.println("Exercício 9 - CQS em Sistema de Mensageria\n");
     System.out.println("=".repeat(70));
 
-    // Demonstração da ABORDAGEM CORRETA
+    // Demonstração da ABORDAGEM MELHORADA
     FilaMensagens fila = new FilaMensagens();
 
     System.out.println("Estado inicial da fila:");
