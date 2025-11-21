@@ -207,11 +207,6 @@ public class FilaMensagens {
  * 2. Process: Processa conteúdo
  * 3. Remove: Remove apenas se sucesso (Command)
  * 
- * COMPARAÇÃO COM SISTEMAS REAIS:
- * - RabbitMQ: basic.get (peek) + basic.ack (remove)
- * - AWS SQS: ReceiveMessage (peek) + DeleteMessage (remove)
- * - Kafka: poll() + commit offset (separado)
- * 
  * PROBLEMAS DA VIOLAÇÃO:
  * 1. Perda de mensagens em caso de falha
  * 2. Impossibilidade de retry automático

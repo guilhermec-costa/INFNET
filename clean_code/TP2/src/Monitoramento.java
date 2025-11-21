@@ -11,7 +11,6 @@ public class Monitoramento {
    * PROBLEMA: Método com nome de getter (get) modifica estado
    * - Nome sugere Query, mas comporta-se como Command
    * - Viola princípio de menor surpresa
-   * - Quebra convenções JavaBeans
    * - Torna métricas não confiáveis
    */
   public int getContadorAcessosERRADO() {
@@ -164,7 +163,6 @@ public class Monitoramento {
     System.out.println();
     System.out.println("2. COMPORTAMENTO INESPERADO");
     System.out.println("   → Nome 'get' sugere leitura, não escrita");
-    System.out.println("   → Viola convenção JavaBeans");
     System.out.println("   → Quebra princípio de menor surpresa");
     System.out.println();
     System.out.println("3. DIFICULDADE DE DEBUG");
@@ -223,10 +221,4 @@ public class Monitoramento {
  * - Eventos: registrarAcesso() adiciona evento
  * - Query: getContador() calcula de eventos
  * - Vantagens: Auditoria, replay, análise temporal
- * 
- * FRAMEWORKS:
- * - JavaBeans: Dependem de getters sem efeitos colaterais
- * - JPA/Hibernate: Chamam getters para serialização
- * - JSON libraries: Invocam getters via reflection
- * - Todos assumem que getters são Queries puras!
  */

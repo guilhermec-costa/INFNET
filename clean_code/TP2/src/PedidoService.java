@@ -240,11 +240,6 @@ public class PedidoService {
  * - Input vem de fonte externa não controlada
  * - Tratamento genérico é genuinamente desejado
  * 
- * FERRAMENTAS:
- * - Java 14+: Switch expressions são exaustivas por padrão
- * - IDEs: Warnings sobre switches não-exaustivos
- * - Error Prone: Regra RequiresSwitchDefault
- * 
  * EXEMPLO DE EVOLUÇÃO:
  * 1. Adiciona CANCELADO ao enum
  * 2. Todos os switches quebram (não compilam)

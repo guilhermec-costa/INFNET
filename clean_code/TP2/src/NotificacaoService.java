@@ -332,11 +332,6 @@ public class NotificacaoService {
  * 4. Impossível esquecer casos
  * 5. Código é consistente em todo o sistema
  * 
- * FERRAMENTAS:
- * - Java 14+: Switch expressions (exaustivas por natureza)
- * - IDEs: Warnings sobre switches não-exaustivos
- * - Static analysis: CheckStyle, SpotBugs
- * - Error Prone: MissingCasesInEnumSwitch
  * 
  * QUANDO EXCEÇÕES SÃO ACEITÁVEIS:
  * - Input de fonte externa não confiável
