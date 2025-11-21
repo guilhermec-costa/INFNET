@@ -140,7 +140,7 @@ public class RelatorioService {
   }
 
   /**
-   * VERSÃO ORIGINAL (mantida para comparação).
+   * VERSÃO ORIGINAL (mantida para efeito de comparação).
    * Problemas: Ifs aninhados, lógica misturada, difícil extensão.
    */
   public void gerarRelatorioOriginal(String tipo) {

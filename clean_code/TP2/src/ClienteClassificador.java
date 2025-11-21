@@ -84,7 +84,7 @@ public class ClienteClassificador {
   }
 
   /**
-   * VERSÃO ORIGINAL (mantida para comparação):
+   * VERSÃO ORIGINAL (mantida para efeito de comparação):
    */
   public String classificarClienteOriginal(int idade, double renda, int compras, String localizacao) {
     if (idade > 60) {

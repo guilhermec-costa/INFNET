@@ -94,7 +94,7 @@ public class InterfacePersonalizacao {
   }
 
   /**
-   * VERSÃO ORIGINAL (mantida para comparação).
+   * VERSÃO ORIGINAL (mantida para efeito de comparação).
    * Problema: Fortemente acoplado, difícil de estender.
    */
   public List<Color> getFlagColorsOriginal(Nationality nationality) {
