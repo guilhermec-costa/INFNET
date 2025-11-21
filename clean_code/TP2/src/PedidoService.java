@@ -7,13 +7,11 @@ enum StatusPedido {
   PROCESSANDO,
   ENVIADO,
   ENTREGUE,
-  // Novos status podem ser adicionados aqui
-  // CANCELADO, // Ao adicionar, compilador força tratar em todos switches!
 }
 
 public class PedidoService {
   /**
-   * VERSÃO ORIGINAL (INCORRETA) - mantida para demonstração.
+   * VERSÃO ORIGINAL (INCORRETA) - mantida para efeito de demonstração.
    * 
    * PROBLEMA: Uso de default oculta casos não tratados.
    * - Se novo status for adicionado ao enum, código compila normalmente
@@ -62,7 +60,7 @@ public class PedidoService {
       case ENTREGUE:
         processarEntregue();
         break;
-      // Sem default! Se adicionar novo status, não compila até tratar aqui.
+      // Sem default Se adicionar novo status, não compila até tratar aqui.
     }
   }
 

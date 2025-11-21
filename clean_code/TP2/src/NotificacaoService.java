@@ -66,7 +66,7 @@ class PushNotificacao implements NotificacaoStrategy {
 
 public class NotificacaoService {
   /**
-   * VERSÃO ORIGINAL (INCORRETA) - mantida para demonstração.
+   * VERSÃO ORIGINAL (INCORRETA) - mantida para efeito de demonstração.
    * 
    * PROBLEMA: default com exception ainda permite compilação quando
    * novo tipo é adicionado ao enum.

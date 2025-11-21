@@ -6,7 +6,7 @@ public class Monitoramento {
   private int contadorAcessos = 0;
 
   /**
-   * VERSÃO ORIGINAL (INCORRETA) - mantida para demonstração.
+   * VERSÃO ORIGINAL (INCORRETA) - mantida para efeito de demonstração.
    * 
    * PROBLEMA: Método com nome de getter (get) modifica estado
    * - Nome sugere Query, mas comporta-se como Command

@@ -15,7 +15,7 @@ public class FilaMensagens {
   }
 
   /**
-   * VERSÃO ORIGINAL (INCORRETA) - mantida para demonstração.
+   * VERSÃO ORIGINAL (INCORRETA) - mantida para efeito de demonstração.
    * 
    * PROBLEMA: Viola CQS - retorna valor E modifica estado.
    * 
@@ -27,7 +27,7 @@ public class FilaMensagens {
    * - Não permite preview de mensagens
    */
   public String obterProximaMensagemERRADO() {
-    return mensagens.poll(); // PROBLEMA: Retorna E remove!
+    return mensagens.poll(); // PROBLEMA: Retorna E remove
   }
 
   /**

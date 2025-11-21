@@ -13,7 +13,7 @@ public class ContaBancaria {
   }
 
   /**
-   * VERSÃO ORIGINAL (INCORRETA) - mantida para demonstração.
+   * VERSÃO ORIGINAL (INCORRETA) - mantida para efeito de demonstração.
    * 
    * PROBLEMA: Método mistura Query (verificação) com Command (alteração).
    * - Retorna boolean (comportamento de Query)
@@ -27,7 +27,7 @@ public class ContaBancaria {
    */
   public boolean podeComprarERRADO(double valor) {
     if (saldo >= valor) {
-      saldo -= valor; // PROBLEMA: Modifica estado enquanto consulta!
+      saldo -= valor; // PROBLEMA: Modifica estado enquanto consulta
       return true;
     }
     return false;
