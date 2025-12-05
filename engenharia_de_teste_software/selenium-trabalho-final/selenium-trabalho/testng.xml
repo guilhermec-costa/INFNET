@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite Automação">
+    <test name="Testes Selenium">
+        <classes>
+            <class name="tests.Exercicio3RegisterAndContact"/>
+            <class name="tests.Exercicio4LoginTests"/>
+            <class name="tests.Exercicio6LoginPersistenteComCookies"/>
+            <class name="tests.Exercicio7ScreenshotTest"/>
+            <class name="tests.Exercicio8CarrinhoECheckout"/>
+            <class name="tests.Exercicio9ScrollTest"/>
+        </classes>
+    </test>
+</suite>

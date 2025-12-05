@@ -1,0 +1,31 @@
+Os três principais componentes do Selenium são:
+
+1. Selenium WebDriver
+   - API moderna e mais usada atualmente.
+   - Controla o navegador nativamente via drivers (ChromeDriver, GeckoDriver etc.).
+   - Suporta várias linguagens (Java, Python, C#, etc.).
+   - Execução direta no navegador, sem servidor intermediário.
+
+2. Selenium Grid
+   - Permite executar testes em paralelo em várias máquinas/navegadores simultaneamente.
+   - Possui Hub (servidor central) e Nodes (máquinas clientes).
+   - Ideal para reduzir tempo de execução em grandes suítes de teste.
+
+3. Selenium IDE
+   - Plugin para Chrome/Firefox que grava e reproduz ações do usuário.
+   - Ótimo para prototipagem rápida e testes exploratórios.
+   - Exporta código para várias linguagens.
+
+Diferença WebDriver x Grid:
+- WebDriver → executa localmente em um único navegador.
+- Grid → distribui testes em múltiplos navegadores/máquinas ao mesmo tempo.
+
+Vantagens do Selenium IDE:
+- Fácil aprendizado, interface gráfica, gravação com um clique.
+- Exportação de código.
+
+Limitações do Selenium IDE:
+- Pouco suporte a lógica complexa (loops, condições avançadas).
+- Frágil com mudanças de layout.
+- Não suporta execução em paralelo nativamente.
+- Não recomendado para suites grandes ou CI/CD.
