@@ -92,6 +92,10 @@ public final class Sprint {
         this.createdAt, LocalDateTime.now(), newTasks);
   }
 
+  public List<Task> listarTarefas() {
+    return this.tasks;
+  }
+
   /**
    * Verifica se o sprint está ativo na data atual
    */

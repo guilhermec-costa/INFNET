@@ -13,7 +13,8 @@ import com.infnet.TP3.domain.entities.Project;
  * são armazenados.
  *
  * Benefícios:
- * - Inversão de dependência (negócio depende da abstração, não da implementação)
+ * - Inversão de dependência (negócio depende da abstração, não da
+ * implementação)
  * - Fácil de testar (mocks/implementações em memória)
  * - Trocamos a tecnologia de persistência sem mudar a lógica de negócio
  * - SRP: interface focada apenas em operações de persistência

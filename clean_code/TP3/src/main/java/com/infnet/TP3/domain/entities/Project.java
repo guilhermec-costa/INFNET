@@ -99,6 +99,10 @@ public final class Project {
         this.createdAt, LocalDateTime.now(), newSprints);
   }
 
+  public List<Sprint> listarSprints() {
+    return this.sprints;
+  }
+
   /**
    * Retorna NOVO projeto com nome e descrição atualizados
    */
