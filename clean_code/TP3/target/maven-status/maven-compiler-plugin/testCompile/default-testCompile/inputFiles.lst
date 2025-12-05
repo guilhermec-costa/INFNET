@@ -1,0 +1,5 @@
+/home/guichina/dev/infnet/clean_code/TP3/src/test/java/com/infnet/TP3/AppTest.java
+/home/guichina/dev/infnet/clean_code/TP3/src/test/java/com/infnet/TP3/application/services/ProjectServiceImplTest.java
+/home/guichina/dev/infnet/clean_code/TP3/src/test/java/com/infnet/TP3/domain/entities/ProjectTest.java
+/home/guichina/dev/infnet/clean_code/TP3/src/test/java/com/infnet/TP3/domain/entities/TaskTest.java
+/home/guichina/dev/infnet/clean_code/TP3/src/test/java/com/infnet/TP3/domain/valueObjects/MoneyTest.java

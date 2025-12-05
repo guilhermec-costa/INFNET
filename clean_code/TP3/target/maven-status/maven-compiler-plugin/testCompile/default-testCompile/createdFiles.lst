@@ -1,0 +1,5 @@
+com/infnet/TP3/AppTest.class
+com/infnet/TP3/application/services/ProjectServiceTest.class
+com/infnet/TP3/domain/valueObjects/MoneyTest.class
+com/infnet/TP3/domain/entities/ProjectTest.class
+com/infnet/TP3/domain/entities/TaskTest.class

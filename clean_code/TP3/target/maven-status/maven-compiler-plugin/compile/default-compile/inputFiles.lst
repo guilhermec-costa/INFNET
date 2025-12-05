@@ -1,0 +1,14 @@
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/Main.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/application/services/ProjectServiceImpl.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/domain/entities/Project.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/domain/entities/Sprint.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/domain/entities/Task.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/domain/entities/User.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/domain/enums/TaskStatus.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/domain/repositories/ProjectRepository.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/domain/repositories/UserRepository.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/domain/services/ProjectService.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/domain/valueObjects/Money.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/domain/valueObjects/TaskItem.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/infra/repositories/InMemoryProjectRepository.java
+/home/guichina/dev/infnet/clean_code/TP3/src/main/java/com/infnet/TP3/infra/repositories/InMemoryUserRepository.java
