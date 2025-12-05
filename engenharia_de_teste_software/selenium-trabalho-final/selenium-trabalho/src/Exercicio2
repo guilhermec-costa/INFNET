@@ -1,61 +1,52 @@
-Exercício 2 – Configuração do Ambiente para Testes com Selenium WebDriver
+Exercício 2 — Configurar ambiente de testes (resumo)
 
-1. Passos necessários para configurar um ambiente de testes em Java com Selenium WebDriver:
+---
 
-   • Instalar o JDK (Java Development Kit) 17 ou superior
-   • Instalar uma IDE (IntelliJ IDEA, Eclipse ou VS Code com extensões Java)
-   • Instalar o Maven (gerenciador de dependências e build)
-   • Criar um projeto Maven (pode ser via archetype ou diretamente na IDE)
-   • Adicionar as dependências do Selenium e WebDriverManager no pom.xml
-   • (Opcional, mas recomendado) Adicionar TestNG ou JUnit para execução dos testes
-   • Configurar o BaseTest com WebDriverManager para gerenciar drivers automaticamente
-   • Executar os testes com mvn test ou pela IDE
+1) Passos principais
 
-2. Importância do WebDriver Manager e como ele facilita a configuração:
+Instale JDK 17+ e uma IDE (IntelliJ, Eclipse ou VS Code).
 
-   O WebDriverManager (criado por Boni García) é a solução moderna e definitiva para o maior problema antigo do Selenium: a gestão manual dos binários dos drivers (chromedriver, geckodriver, etc.).
+Instale Maven.
 
-   Vantagens:
-   • Elimina a necessidade de baixar manualmente o chromedriver/geckodriver para cada versão do navegador
-   • Detecta automaticamente a versão do navegador instalado na máquina
-   • Faz o download da versão correta do driver na primeira execução
-   • Armazena os drivers em cache (~/.cache/selenium) para reutilização
-   • Funciona em Windows, macOS e Linux sem configuração adicional
-   • Atualiza automaticamente quando uma nova versão do navegador é instalada
+Crie um projeto Maven.
 
-   Antes do WebDriverManager, era comum o erro “session not created: This version of ChromeDriver only supports Chrome version XX”. Com apenas uma linha:
-   WebDriverManager.chromedriver().setup();
-   esse problema desaparece para sempre.
+Adicione dependências (Selenium, WebDriverManager, TestNG/JUnit).
 
-3. Passo a passo resumido de como instalar e configurar as bibliotecas do Selenium no projeto:
+Configure um BaseTest que use WebDriverManager para gerenciar drivers.
 
-  a) Abra o arquivo pom.xml do seu projeto Maven
-  b) Dentro da seção <dependencies>, adicione:
+Execute: mvn test ou via IDE.
 
-   ```xml
-   <!-- Selenium WebDriver -->
-   <dependency>
-       <groupId>org.seleniumhq.selenium</groupId>
-       <artifactId>selenium-java</artifactId>
-       <version>4.26.0</version>
-   </dependency>
+---
 
-   <!-- WebDriverManager (gerencia drivers automaticamente) -->
-   <dependency>
-       <groupId>io.github.bonigarcia</groupId>
-       <artifactId>webdrivermanager</artifactId>
-       <version>5.9.2</version>
-   </dependency>
+2) Por que usar WebDriverManager
 
-   <!-- TestNG (para rodar os testes) -->
-   <dependency>
-       <groupId>org.testng</groupId>
-       <artifactId>testng</artifactId>
-       <version>7.10.2</version>
-       <scope>test</scope>
-   </dependency>
+Resolve automaticamente o download e a versão correta do driver (chromedriver/geckodriver).
 
-  c) Salve o arquivo → o Maven baixará automaticamente todas as bibliotecas
-  d) No código Java, use apenas uma linha para iniciar o Chrome:
-  JavaWebDriverManager.chromedriver().setup();
-  WebDriver driver = new ChromeDriver();
+Evita erros de incompatibilidade entre Chrome e ChromeDriver.
+
+Mantém drivers em cache e funciona em Windows/macOS/Linux.
+
+Exemplo de uso:
+
+WebDriverManager.chromedriver().setup();
+WebDriver driver = new ChromeDriver();
+
+3) Dependências (pom.xml)
+<dependency>
+  <groupId>org.seleniumhq.selenium</groupId>
+  <artifactId>selenium-java</artifactId>
+  <version>4.26.0</version>
+</dependency>
+
+<dependency>
+  <groupId>io.github.bonigarcia</groupId>
+  <artifactId>webdrivermanager</artifactId>
+  <version>5.9.2</version>
+</dependency>
+
+<dependency>
+  <groupId>org.testng</groupId>
+  <artifactId>testng</artifactId>
+  <version>7.10.2</version>
+  <scope>test</scope>
+</dependency>
