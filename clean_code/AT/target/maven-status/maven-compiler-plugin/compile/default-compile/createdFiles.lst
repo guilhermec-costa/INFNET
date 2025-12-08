@@ -1,0 +1,13 @@
+com/infnet/frete/FretePadrao.class
+com/infnet/frete/PromocaoFrete.class
+com/infnet/frete/FreteEconomico.class
+com/infnet/service/EtiquetaService.class
+com/infnet/frete/FreteExpresso.class
+com/infnet/domain/Entrega.class
+com/infnet/frete/CalculadoraFrete.class
+com/infnet/exception/InvalidEnderecoException.class
+com/infnet/frete/FreteFactory.class
+com/infnet/App.class
+com/infnet/exception/InvalidPesoException.class
+com/infnet/frete/PromocaoPesoAlto.class
+com/infnet/exception/InvalidTipoFreteException.class
