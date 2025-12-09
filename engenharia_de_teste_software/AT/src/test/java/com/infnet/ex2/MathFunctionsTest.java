@@ -21,10 +21,6 @@ import net.jqwik.api.Provide;
 import net.jqwik.api.constraints.IntRange;
 import net.jqwik.api.lifecycle.BeforeProperty;
 
-/**
- * Testes baseados em propriedades usando jqwik
- * Valida comportamentos esperados em diferentes cenários
- */
 class MathFunctionsPropertyTest {
 
   private MathFunctions mathFunctions;
@@ -34,14 +30,11 @@ class MathFunctionsPropertyTest {
     mathFunctions = new MathFunctions();
   }
 
-  // ===== PROPRIEDADE 1: MultiplyByTwo sempre retorna número par =====
-
   @Property
   @Label("MultiplyByTwo sempre retorna um número par")
   void multiplyByTwoAlwaysReturnsEvenNumber(@ForAll @IntRange(min = -1000000, max = 1000000) int number) {
     int result = mathFunctions.multiplyByTwo(number);
 
-    // Propriedade: resultado sempre é par (divisível por 2)
     assertEquals(0, result % 2,
         String.format("Resultado %d não é par para entrada %d", result, number));
   }
@@ -74,9 +67,6 @@ class MathFunctionsPropertyTest {
     assertEquals(0, result, "Resultado deve ser zero para entrada zero");
   }
 
-  // ===== PROPRIEDADE 2: GenerateMultiplicationTable - todos elementos são
-  // múltiplos =====
-
   @Property
   @Label("Todos elementos da tabuada são múltiplos do número original")
   void multiplicationTableElementsAreMultiples(
@@ -87,7 +77,6 @@ class MathFunctionsPropertyTest {
 
     for (int i = 0; i < table.length; i++) {
       int element = table[i];
-      // Propriedade: cada elemento é múltiplo do número
       assertEquals(0, element % number,
           String.format("Elemento %d na posição %d não é múltiplo de %d",
               element, i, number));
@@ -112,21 +101,18 @@ class MathFunctionsPropertyTest {
 
     int[] table = mathFunctions.generateMultiplicationTable(number, limit);
 
-    // Para números positivos, elementos devem estar em ordem crescente
     if (number > 0) {
       for (int i = 1; i < table.length; i++) {
         assertTrue(table[i] > table[i - 1],
             String.format("Elementos devem estar em ordem crescente para número positivo %d", number));
       }
     }
-    // Para números negativos, elementos devem estar em ordem decrescente
     else if (number < 0) {
       for (int i = 1; i < table.length; i++) {
         assertTrue(table[i] < table[i - 1],
             String.format("Elementos devem estar em ordem decrescente para número negativo %d", number));
       }
     }
-    // Para zero, todos elementos devem ser zero
     else {
       for (int element : table) {
         assertEquals(0, element, "Tabuada de zero deve conter apenas zeros");
@@ -143,8 +129,6 @@ class MathFunctionsPropertyTest {
     int[] table = mathFunctions.generateMultiplicationTable(number, limit);
     assertEquals(number, table[0]);
   }
-
-  // ===== PROPRIEDADE 3: IsPrime - números primos não têm divisores =====
 
   @Property
   @Label("Números menores ou iguais a 1 não são primos")
@@ -182,7 +166,7 @@ class MathFunctionsPropertyTest {
   void evenNumbersGreaterThanTwoAreNotPrime(
       @ForAll @IntRange(min = 4, max = 1000) int number) {
 
-    Assume.that(number % 2 == 0); // Garante que é par
+    Assume.that(number % 2 == 0);
 
     assertFalse(mathFunctions.isPrime(number),
         String.format("Número par %d não deveria ser primo", number));
@@ -194,7 +178,6 @@ class MathFunctionsPropertyTest {
     boolean isPrime = mathFunctions.isPrime(number);
 
     if (isPrime) {
-      // Valida que realmente não tem divisores
       int sqrt = (int) Math.sqrt(number);
       for (int i = 2; i <= sqrt; i++) {
         assertNotEquals(0, number % i,
@@ -202,8 +185,6 @@ class MathFunctionsPropertyTest {
       }
     }
   }
-
-  // ===== PROPRIEDADE 4: CalculateAverage - resultado entre min e max =====
 
   @Property
   @Label("Média deve estar entre o menor e o maior valor do array")
@@ -265,8 +246,6 @@ class MathFunctionsPropertyTest {
         () -> mathFunctions.calculateAverage(new int[0]));
   }
 
-  // ===== TESTES COM MOCK =====
-
   @Property
   @Label("Logger deve ser chamado quando presente - MultiplyByTwo")
   void loggerIsCalledForMultiplyByTwo(@ForAll int number) {
@@ -292,8 +271,6 @@ class MathFunctionsPropertyTest {
     verify(mockLogger, times(1))
         .log(eq("GenerateMultiplicationTable"), any(int[].class));
   }
-
-  // ===== GERADORES PERSONALIZADOS =====
 
   @Provide
   Arbitrary<int[]> intArrays() {

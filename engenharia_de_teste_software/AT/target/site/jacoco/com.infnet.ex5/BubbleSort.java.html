@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BubbleSort.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AT</a> &gt; <a href="index.source.html" class="el_package">com.infnet.ex5</a> &gt; <span class="el_source">BubbleSort.java</span></div><h1>BubbleSort.java</h1><pre class="source lang-java linenums">package com.infnet.ex5;
+
+/**
+ * Implementação do algoritmo Bubble Sort
+ * Baseado em: https://github.com/TheAlgorithms/Java
+ */
+<span class="fc" id="L7">public class BubbleSort {</span>
+
+  /**
+   * Ordena um array de inteiros usando Bubble Sort
+   * 
+   * @param array Array a ser ordenado
+   * @return Array ordenado
+   */
+  public int[] sort(int[] array) {
+<span class="fc bfc" id="L16" title="All 2 branches covered.">    if (array == null) {</span>
+<span class="fc" id="L17">      throw new IllegalArgumentException(&quot;Array cannot be null&quot;);</span>
+    }
+
+<span class="fc bfc" id="L20" title="All 2 branches covered.">    if (array.length &lt;= 1) {</span>
+<span class="fc" id="L21">      return array;</span>
+    }
+
+<span class="fc" id="L24">    int size = array.length;</span>
+
+<span class="fc bfc" id="L26" title="All 2 branches covered.">    for (int i = 1; i &lt; size; i++) {</span>
+<span class="fc" id="L27">      boolean swapped = false;</span>
+
+<span class="fc bfc" id="L29" title="All 2 branches covered.">      for (int j = 0; j &lt; size - i; j++) {</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (array[j] &gt; array[j + 1]) {</span>
+<span class="fc" id="L31">          swap(array, j, j + 1);</span>
+<span class="fc" id="L32">          swapped = true;</span>
+        }
+      }
+
+<span class="fc bfc" id="L36" title="All 2 branches covered.">      if (!swapped) {</span>
+<span class="fc" id="L37">        break;</span>
+      }
+    }
+
+<span class="fc" id="L41">    return array;</span>
+  }
+
+  /**
+   * Ordena um array de Comparable usando Bubble Sort (versão genérica)
+   * 
+   * @param array Array a ser ordenado
+   * @param &lt;T&gt;   Tipo que implementa Comparable
+   * @return Array ordenado
+   */
+  public &lt;T extends Comparable&lt;T&gt;&gt; T[] sort(T[] array) {
+<span class="fc bfc" id="L52" title="All 2 branches covered.">    if (array == null) {</span>
+<span class="fc" id="L53">      throw new IllegalArgumentException(&quot;Array cannot be null&quot;);</span>
+    }
+
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">    if (array.length &lt;= 1) {</span>
+<span class="nc" id="L57">      return array;</span>
+    }
+
+<span class="fc" id="L60">    int size = array.length;</span>
+
+<span class="fc bfc" id="L62" title="All 2 branches covered.">    for (int i = 1; i &lt; size; i++) {</span>
+<span class="fc" id="L63">      boolean swapped = false;</span>
+
+<span class="fc bfc" id="L65" title="All 2 branches covered.">      for (int j = 0; j &lt; size - i; j++) {</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (greater(array[j], array[j + 1])) {</span>
+<span class="fc" id="L67">          swap(array, j, j + 1);</span>
+<span class="fc" id="L68">          swapped = true;</span>
+        }
+      }
+
+      // Otimização: se não houve trocas, já está ordenado
+<span class="fc bfc" id="L73" title="All 2 branches covered.">      if (!swapped) {</span>
+<span class="fc" id="L74">        break;</span>
+      }
+    }
+
+<span class="fc" id="L78">    return array;</span>
+  }
+
+  /**
+   * Troca dois elementos no array de inteiros
+   * 
+   * @param array Array onde a troca será feita
+   * @param i     Índice do primeiro elemento
+   * @param j     Índice do segundo elemento
+   */
+  private void swap(int[] array, int i, int j) {
+<span class="fc" id="L89">    int temp = array[i];</span>
+<span class="fc" id="L90">    array[i] = array[j];</span>
+<span class="fc" id="L91">    array[j] = temp;</span>
+<span class="fc" id="L92">  }</span>
+
+  /**
+   * Troca dois elementos no array genérico
+   * 
+   * @param array Array onde a troca será feita
+   * @param i     Índice do primeiro elemento
+   * @param j     Índice do segundo elemento
+   */
+  private &lt;T&gt; void swap(T[] array, int i, int j) {
+<span class="fc" id="L102">    T temp = array[i];</span>
+<span class="fc" id="L103">    array[i] = array[j];</span>
+<span class="fc" id="L104">    array[j] = temp;</span>
+<span class="fc" id="L105">  }</span>
+
+  /**
+   * Compara se o primeiro elemento é maior que o segundo
+   * 
+   * @param a Primeiro elemento
+   * @param b Segundo elemento
+   * @return true se a &gt; b, false caso contrário
+   */
+  private &lt;T extends Comparable&lt;T&gt;&gt; boolean greater(T a, T b) {
+<span class="fc bfc" id="L115" title="All 2 branches covered.">    return a.compareTo(b) &gt; 0;</span>
+  }
+
+  /**
+   * Verifica se um array está ordenado
+   * 
+   * @param array Array a ser verificado
+   * @return true se ordenado, false caso contrário
+   */
+  public boolean isSorted(int[] array) {
+<span class="fc bfc" id="L125" title="All 4 branches covered.">    if (array == null || array.length &lt;= 1) {</span>
+<span class="fc" id="L126">      return true;</span>
+    }
+
+<span class="fc bfc" id="L129" title="All 2 branches covered.">    for (int i = 0; i &lt; array.length - 1; i++) {</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">      if (array[i] &gt; array[i + 1]) {</span>
+<span class="fc" id="L131">        return false;</span>
+      }
+    }
+<span class="fc" id="L134">    return true;</span>
+  }
+
+  /**
+   * Verifica se um array genérico está ordenado
+   * 
+   * @param array Array a ser verificado
+   * @return true se ordenado, false caso contrário
+   */
+  public &lt;T extends Comparable&lt;T&gt;&gt; boolean isSorted(T[] array) {
+<span class="pc bpc" id="L144" title="2 of 4 branches missed.">    if (array == null || array.length &lt;= 1) {</span>
+<span class="nc" id="L145">      return true;</span>
+    }
+
+<span class="fc bfc" id="L148" title="All 2 branches covered.">    for (int i = 0; i &lt; array.length - 1; i++) {</span>
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">      if (array[i].compareTo(array[i + 1]) &gt; 0) {</span>
+<span class="nc" id="L150">        return false;</span>
+      }
+    }
+<span class="fc" id="L153">    return true;</span>
+  }
+
+  /**
+   * Conta o número de comparações necessárias para ordenar
+   * Útil para análise de complexidade
+   * 
+   * @param array Array a ser analisado
+   * @return Número de comparações
+   */
+  public int countComparisons(int[] array) {
+<span class="pc bpc" id="L164" title="2 of 4 branches missed.">    if (array == null || array.length &lt;= 1) {</span>
+<span class="nc" id="L165">      return 0;</span>
+    }
+
+<span class="fc" id="L168">    int comparisons = 0;</span>
+<span class="fc" id="L169">    int size = array.length;</span>
+<span class="fc" id="L170">    int[] temp = array.clone();</span>
+
+<span class="fc bfc" id="L172" title="All 2 branches covered.">    for (int i = 1; i &lt; size; i++) {</span>
+<span class="fc" id="L173">      boolean swapped = false;</span>
+
+<span class="fc bfc" id="L175" title="All 2 branches covered.">      for (int j = 0; j &lt; size - i; j++) {</span>
+<span class="fc" id="L176">        comparisons++;</span>
+<span class="fc bfc" id="L177" title="All 2 branches covered.">        if (temp[j] &gt; temp[j + 1]) {</span>
+<span class="fc" id="L178">          int t = temp[j];</span>
+<span class="fc" id="L179">          temp[j] = temp[j + 1];</span>
+<span class="fc" id="L180">          temp[j + 1] = t;</span>
+<span class="fc" id="L181">          swapped = true;</span>
+        }
+      }
+
+<span class="fc bfc" id="L185" title="All 2 branches covered.">      if (!swapped) {</span>
+<span class="fc" id="L186">        break;</span>
+      }
+    }
+
+<span class="fc" id="L190">    return comparisons;</span>
+  }
+
+  /**
+   * Conta o número de trocas necessárias para ordenar
+   * 
+   * @param array Array a ser analisado
+   * @return Número de trocas
+   */
+  public int countSwaps(int[] array) {
+<span class="pc bpc" id="L200" title="2 of 4 branches missed.">    if (array == null || array.length &lt;= 1) {</span>
+<span class="nc" id="L201">      return 0;</span>
+    }
+
+<span class="fc" id="L204">    int swaps = 0;</span>
+<span class="fc" id="L205">    int size = array.length;</span>
+<span class="fc" id="L206">    int[] temp = array.clone();</span>
+
+<span class="fc bfc" id="L208" title="All 2 branches covered.">    for (int i = 1; i &lt; size; i++) {</span>
+<span class="fc" id="L209">      boolean swapped = false;</span>
+
+<span class="fc bfc" id="L211" title="All 2 branches covered.">      for (int j = 0; j &lt; size - i; j++) {</span>
+<span class="fc bfc" id="L212" title="All 2 branches covered.">        if (temp[j] &gt; temp[j + 1]) {</span>
+<span class="fc" id="L213">          int t = temp[j];</span>
+<span class="fc" id="L214">          temp[j] = temp[j + 1];</span>
+<span class="fc" id="L215">          temp[j + 1] = t;</span>
+<span class="fc" id="L216">          swaps++;</span>
+<span class="fc" id="L217">          swapped = true;</span>
+        }
+      }
+
+<span class="fc bfc" id="L221" title="All 2 branches covered.">      if (!swapped) {</span>
+<span class="fc" id="L222">        break;</span>
+      }
+    }
+
+<span class="fc" id="L226">    return swaps;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.infnet.AppTest" time="0.001" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.infnet.ex1.CalculoIMCTest" time="0.145" tests="41" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -53,5 +53,45 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.infnet.AppTest" time="0.0"/>
+  <testcase name="deveCalcularIMCDiversosCenarios(double, double, double)[1]" classname="com.infnet.ex1.CalculoIMCTest" time="0.036"/>
+  <testcase name="deveCalcularIMCDiversosCenarios(double, double, double)[2]" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveCalcularIMCDiversosCenarios(double, double, double)[3]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveCalcularIMCDiversosCenarios(double, double, double)[4]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveCalcularIMCDiversosCenarios(double, double, double)[5]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveCalcularIMCDiversosCenarios(double, double, double)[6]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveLidarComAlturaPequena" classname="com.infnet.ex1.CalculoIMCTest" time="0.002"/>
+  <testcase name="deveClassificarObesidadeGrauIII" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarMagrezaGrave" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarExatamenteNosLimites" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveCalcularIMCCorretamente" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveClassificarMagrezaModerada" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveClassificarSaudavel" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveCalcularComValoresMuitoProximos" classname="com.infnet.ex1.CalculoIMCTest" time="0.003"/>
+  <testcase name="deveClassificarLigeiramenteAbaixoDosLimites" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveCalcularIMCValoresExtremos" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveClassificarObesidadeGrauII" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarIMCMuitoBaixo" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarSobrepeso" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveClassificarLigeiramenteAcimaDosLimites" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveCalcularIMCZeroQuandoPesoZero" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarIMCMuitoAlto" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveClassificarMagrezaLeve" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveLidarComValoresDecimaisPrecisos" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[1]" classname="com.infnet.ex1.CalculoIMCTest" time="0.002"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[2]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[3]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[4]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[5]" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[6]" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[7]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[8]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[9]" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[10]" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[11]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[12]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[13]" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveClassificarValoresLimite(double, String)[14]" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveLidarComValoresNegativos" classname="com.infnet.ex1.CalculoIMCTest" time="0.001"/>
+  <testcase name="deveClassificarObesidadeGrauI" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
+  <testcase name="deveManterPrecisaoComDecimaisLongos" classname="com.infnet.ex1.CalculoIMCTest" time="0.0"/>
 </testsuite>

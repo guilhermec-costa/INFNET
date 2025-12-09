@@ -1,15 +1,25 @@
 package com.infnet.ex3;
 
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import org.junit.jupiter.api.*;
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.containsStringIgnoringCase;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.emptyOrNullString;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasKey;
+import static org.hamcrest.Matchers.not;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 
 @DisplayName("Testes da API ViaCEP")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -56,7 +66,6 @@ class ViaCEPApiTest {
         .when()
         .get("/" + cepInvalido + "/json/");
 
-    // Aceita tanto erro 400 quanto resposta com campo "erro": true
     assertTrue(response.statusCode() == 400);
   }
 
@@ -68,7 +77,6 @@ class ViaCEPApiTest {
         .when()
         .get("/" + cep + "/json/");
 
-    // Pode retornar erro ou CEP não encontrado
     assertTrue(response.statusCode() == 200 || response.statusCode() == 400);
 
     if (response.statusCode() == 200) {
@@ -107,8 +115,6 @@ class ViaCEPApiTest {
         .statusCode(400);
   }
 
-  // ===== TESTES DE CONSULTA POR ENDEREÇO =====
-
   @Test
   @DisplayName("Deve retornar resultados para busca por endereço completo")
   void deveRetornarResultadosParaBuscaPorEndereco() {
@@ -144,25 +150,6 @@ class ViaCEPApiTest {
       assertTrue(response.jsonPath().getList("$").isEmpty());
     }
   }
-
-  // ===== TABELA DE DECISÃO =====
-
-  /**
-   * Tabela de Decisão para Consulta por Endereço
-   * 
-   * Condições:
-   * 1. UF válida (SP, RJ, MG, etc)
-   * 2. Cidade existe
-   * 3. Cidade com acentuação correta
-   * 4. Logradouro existe
-   * 
-   * Regras:
-   * R1: UF=V, Cidade=V, Acento=S, Log=V -> Sucesso 200 com dados
-   * R2: UF=V, Cidade=V, Acento=N, Log=V -> Sucesso 200 com dados
-   * R3: UF=V, Cidade=V, Acento=S, Log=I -> Sucesso 200 vazio
-   * R4: UF=V, Cidade=I, Acento=N/A, Log=N/A -> Erro 400 ou vazio
-   * R5: UF=I, Cidade=N/A, Acento=N/A, Log=N/A -> Erro 400
-   */
 
   @Test
   @DisplayName("R1: UF válida + Cidade válida + Acentuação correta + Logradouro válido")
@@ -224,8 +211,6 @@ class ViaCEPApiTest {
             response.jsonPath().getList("$").isEmpty()));
   }
 
-  // ===== TESTES DE FORMATO DE RESPOSTA =====
-
   @Test
   @DisplayName("Deve retornar JSON válido")
   void deveRetornarJsonValido() {
@@ -256,8 +241,6 @@ class ViaCEPApiTest {
         .body("$", hasKey("ddd"))
         .body("$", hasKey("siafi"));
   }
-
-  // ===== TESTES DE PERFORMANCE E DISPONIBILIDADE =====
 
   @Test
   @DisplayName("Deve responder em tempo razoável (< 3 segundos)")

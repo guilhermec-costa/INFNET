@@ -11,14 +11,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Page Object para a página de Login
- * Padrão Page Object Model (POM)
  */
 public class LoginPage {
 
   private WebDriver driver;
   private WebDriverWait wait;
 
-  // Elementos da página usando @FindBy
   @FindBy(css = "a[href='/login']")
   private WebElement loginLink;
 

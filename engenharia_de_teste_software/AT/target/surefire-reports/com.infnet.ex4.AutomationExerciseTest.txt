@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.infnet.ex4.AutomationExerciseTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 7, Time elapsed: 0.011 s -- in com.infnet.ex4.AutomationExerciseTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 7, Time elapsed: 0.017 s -- in com.infnet.ex4.AutomationExerciseTest

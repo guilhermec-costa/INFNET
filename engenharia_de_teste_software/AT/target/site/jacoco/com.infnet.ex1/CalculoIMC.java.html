@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalculoIMC.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AT</a> &gt; <a href="index.source.html" class="el_package">com.infnet.ex1</a> &gt; <span class="el_source">CalculoIMC.java</span></div><h1>CalculoIMC.java</h1><pre class="source lang-java linenums">package com.infnet.ex1;
+
+/**
+ * Calculadora de IMC (Índice de Massa Corporal)
+ * https://github.com/Wolfterro/Projetos-em-Java/tree/master/CalculoIMC
+ */
+<span class="nc" id="L7">public class CalculoIMC {</span>
+
+  /**
+   * Classifica o IMC de acordo com as faixas estabelecidas
+   * 
+   * @param imc Valor do IMC calculado
+   * @return Classificação do IMC
+   */
+  public static String classificarIMC(double imc) {
+<span class="fc bfc" id="L16" title="All 2 branches covered.">    if (imc &lt; 16.0) {</span>
+<span class="fc" id="L17">      return &quot;Magreza grave&quot;;</span>
+<span class="fc bfc" id="L18" title="All 4 branches covered.">    } else if (imc == 16.0 || imc &lt; 17.0) {</span>
+<span class="fc" id="L19">      return &quot;Magreza moderada&quot;;</span>
+<span class="fc bfc" id="L20" title="All 4 branches covered.">    } else if (imc == 17.0 || imc &lt; 18.5) {</span>
+<span class="fc" id="L21">      return &quot;Magreza leve&quot;;</span>
+<span class="fc bfc" id="L22" title="All 4 branches covered.">    } else if (imc == 18.5 || imc &lt; 25.0) {</span>
+<span class="fc" id="L23">      return &quot;Saudável&quot;;</span>
+<span class="fc bfc" id="L24" title="All 4 branches covered.">    } else if (imc == 25.0 || imc &lt; 30.0) {</span>
+<span class="fc" id="L25">      return &quot;Sobrepeso&quot;;</span>
+<span class="fc bfc" id="L26" title="All 4 branches covered.">    } else if (imc == 30.0 || imc &lt; 35.0) {</span>
+<span class="fc" id="L27">      return &quot;Obesidade Grau I&quot;;</span>
+<span class="fc bfc" id="L28" title="All 4 branches covered.">    } else if (imc == 35.0 || imc &lt; 40.0) {</span>
+<span class="fc" id="L29">      return &quot;Obesidade Grau II&quot;;</span>
+    } else {
+<span class="fc" id="L31">      return &quot;Obesidade Grau III&quot;;</span>
+    }
+  }
+
+  /**
+   * Calcula o IMC com base no peso e altura
+   * 
+   * @param peso   Peso em quilogramas
+   * @param altura Altura em metros
+   * @return Valor do IMC calculado
+   */
+  public static double calcularPeso(double peso, double altura) {
+<span class="fc" id="L43">    return peso / (altura * altura);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

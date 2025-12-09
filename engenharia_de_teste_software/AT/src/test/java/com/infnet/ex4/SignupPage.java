@@ -18,7 +18,6 @@ public class SignupPage {
   private WebDriver driver;
   private WebDriverWait wait;
 
-  // Elementos da página de signup inicial
   @FindBy(css = "a[href='/login']")
   private WebElement signupLoginLink;
 
@@ -31,7 +30,6 @@ public class SignupPage {
   @FindBy(css = "button[data-qa='signup-button']")
   private WebElement signupButton;
 
-  // Elementos do formulário de informações da conta
   @FindBy(id = "id_gender1")
   private WebElement genderMr;
 

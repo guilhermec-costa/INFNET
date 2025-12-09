@@ -1,24 +1,13 @@
 package com.infnet.ex2;
 
-/**
- * Biblioteca de funções matemáticas com suporte para logging de operações
- */
 public class MathFunctions {
 
   private final MathLogger logger;
 
-  /**
-   * Construtor com injeção de dependência para logging
-   * 
-   * @param logger Interface para logging de operações
-   */
   public MathFunctions(MathLogger logger) {
     this.logger = logger;
   }
 
-  /**
-   * Construtor padrão sem logger
-   */
   public MathFunctions() {
     this.logger = null;
   }

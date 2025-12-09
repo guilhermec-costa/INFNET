@@ -17,10 +17,6 @@ import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Testes automatizados com Selenium WebDriver
- * Aplicando Page Object Model e boas práticas de automação
- */
 @DisplayName("Testes de Automação - Automation Exercise")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class AutomationExerciseTest {
@@ -239,8 +235,6 @@ class AutomationExerciseTest {
       fail("Teste falhou: " + e.getMessage());
     }
   }
-
-  // ===== MÉTODOS AUXILIARES =====
 
   /**
    * Captura screenshot da tela atual

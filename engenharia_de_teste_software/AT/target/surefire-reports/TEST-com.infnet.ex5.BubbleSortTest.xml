@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.infnet.AppTest" time="0.001" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.infnet.ex5.BubbleSortTest" time="0.06" tests="38" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -53,5 +53,42 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="com.infnet.AppTest" time="0.0"/>
+  <testcase name="deveOrdenarArrayComDuplicados" classname="com.infnet.ex5.BubbleSortTest" time="0.002"/>
+  <testcase name="deveOrdenarArrayJaOrdenado" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="deveLancarExcecaoParaArrayGenericoNull" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveContinuarEnquantoHouverTrocas" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="isSortedDeveRetornarTrueParaNull" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveOrdenarArrayMixPositivosNegativos" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveOrdenarArrayGrandeEmTempoRazoavel" classname="com.infnet.ex5.BubbleSortTest" time="0.012"/>
+  <testcase name="bubbleSortEhEstavel" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveLancarExcecaoParaArrayNull" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="deveOrdenarArrayOrdemReversa" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="naoDeveRealizarTrocasArrayOrdenado" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveExecutarMultiplasPassagens" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveTerminarCedoSeNaoHouverTrocas" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveRetornarArrayVazio" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="isSortedDeveRetornarTrueParaVazio" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="deveOrdenarArrayGenericoDoubles" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="melhorCasoDevSerMaisRapido" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="deveOrdenarArrayDoisElementosDesordenado" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveOrdenarDiversosTiposArrays(int[], int[])[1]" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveOrdenarDiversosTiposArrays(int[], int[])[2]" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveOrdenarDiversosTiposArrays(int[], int[])[3]" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveOrdenarDiversosTiposArrays(int[], int[])[4]" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveOrdenarDiversosTiposArrays(int[], int[])[5]" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="deveOrdenarArrayGenericoStrings" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="deveRealizarTrocasQuandoNecessario" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="isSortedDeveRetornarTrueParaUmElemento" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="isSortedDeveRetornarFalseParaNaoOrdenado" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveOrdenarArrayPositivos" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="isSortedDeveRetornarTrueParaOrdenado" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="deveOrdenarArrayGenericoIntegers" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="deveOrdenarArrayTodosIguais" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveContarComparacoesArrayPequeno" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="deveOrdenarArrayComValoresExtremos" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveTermZeroTrocasArrayOrdenado" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveContarTrocasCorretamente" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="deveOrdenarArrayNegativos" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
+  <testcase name="deveOrdenarArrayDoisElementosOrdenado" classname="com.infnet.ex5.BubbleSortTest" time="0.001"/>
+  <testcase name="deveRetornarArrayComUmElemento" classname="com.infnet.ex5.BubbleSortTest" time="0.0"/>
 </testsuite>

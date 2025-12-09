@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: com.infnet.ex3.ViaCEPApiTest
+Test set: com.infnet.ex5.BubbleSortTest
 -------------------------------------------------------------------------------
-Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.79 s -- in com.infnet.ex3.ViaCEPApiTest
+Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.060 s -- in com.infnet.ex5.BubbleSortTest

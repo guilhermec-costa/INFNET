@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: com.infnet.ex3.ViaCEPApiTest
+Test set: com.infnet.ex1.CalculoIMCTest
 -------------------------------------------------------------------------------
-Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.79 s -- in com.infnet.ex3.ViaCEPApiTest
+Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.145 s -- in com.infnet.ex1.CalculoIMCTest
