@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.infnet.ex2.MathFunctionsPropertyTest
+-------------------------------------------------------------------------------
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.611 s -- in com.infnet.ex2.MathFunctionsPropertyTest

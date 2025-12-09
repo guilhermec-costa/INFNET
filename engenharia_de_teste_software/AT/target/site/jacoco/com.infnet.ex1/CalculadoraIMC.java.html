@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalculadoraIMC.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AT</a> &gt; <a href="index.source.html" class="el_package">com.infnet.ex1</a> &gt; <span class="el_source">CalculadoraIMC.java</span></div><h1>CalculadoraIMC.java</h1><pre class="source lang-java linenums">package com.infnet.ex1;
+
+/**
+ * Calculadora de IMC (Índice de Massa Corporal)
+ * Baseada no projeto:
+ * https://github.com/Wolfterro/Projetos-em-Java/tree/master/CalculoIMC
+ */
+<span class="fc" id="L8">public class CalculadoraIMC {</span>
+
+  /**
+   * Calcula o IMC com base no peso e altura
+   * 
+   * @param peso   Peso em quilogramas
+   * @param altura Altura em metros
+   * @return Valor do IMC calculado
+   * @throws IllegalArgumentException se os valores forem inválidos
+   */
+  public double calcularIMC(double peso, double altura) {
+<span class="fc" id="L19">    validarEntrada(peso, altura);</span>
+<span class="fc" id="L20">    return peso / (altura * altura);</span>
+  }
+
+  /**
+   * Classifica o IMC de acordo com a tabela da OMS
+   * 
+   * @param imc Valor do IMC
+   * @return Classificação do IMC
+   */
+  public String classificarIMC(double imc) {
+<span class="fc bfc" id="L30" title="All 2 branches covered.">    if (imc &lt; 0) {</span>
+<span class="fc" id="L31">      throw new IllegalArgumentException(&quot;IMC não pode ser negativo&quot;);</span>
+    }
+
+<span class="fc bfc" id="L34" title="All 2 branches covered.">    if (imc &lt; 18.5) {</span>
+<span class="fc" id="L35">      return &quot;Abaixo do peso&quot;;</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">    } else if (imc &lt; 25.0) {</span>
+<span class="fc" id="L37">      return &quot;Peso normal&quot;;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">    } else if (imc &lt; 30.0) {</span>
+<span class="fc" id="L39">      return &quot;Sobrepeso&quot;;</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">    } else if (imc &lt; 35.0) {</span>
+<span class="fc" id="L41">      return &quot;Obesidade Grau I&quot;;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">    } else if (imc &lt; 40.0) {</span>
+<span class="fc" id="L43">      return &quot;Obesidade Grau II&quot;;</span>
+    } else {
+<span class="fc" id="L45">      return &quot;Obesidade Grau III&quot;;</span>
+    }
+  }
+
+  /**
+   * Calcula o IMC e retorna a classificação
+   * 
+   * @param peso   Peso em quilogramas
+   * @param altura Altura em metros
+   * @return Classificação do IMC
+   */
+  public String calcularEClassificar(double peso, double altura) {
+<span class="fc" id="L57">    double imc = calcularIMC(peso, altura);</span>
+<span class="fc" id="L58">    return String.format(&quot;IMC: %.2f - %s&quot;, imc, classificarIMC(imc));</span>
+  }
+
+  /**
+   * Valida as entradas de peso e altura
+   */
+  private void validarEntrada(double peso, double altura) {
+<span class="fc bfc" id="L65" title="All 2 branches covered.">    if (peso &lt;= 0) {</span>
+<span class="fc" id="L66">      throw new IllegalArgumentException(&quot;Peso deve ser maior que zero&quot;);</span>
+    }
+<span class="fc bfc" id="L68" title="All 2 branches covered.">    if (altura &lt;= 0) {</span>
+<span class="fc" id="L69">      throw new IllegalArgumentException(&quot;Altura deve ser maior que zero&quot;);</span>
+    }
+<span class="fc bfc" id="L71" title="All 2 branches covered.">    if (peso &gt; 500) {</span>
+<span class="fc" id="L72">      throw new IllegalArgumentException(&quot;Peso inválido: valor muito alto&quot;);</span>
+    }
+<span class="fc bfc" id="L74" title="All 2 branches covered.">    if (altura &gt; 3.0) {</span>
+<span class="fc" id="L75">      throw new IllegalArgumentException(&quot;Altura inválida: valor muito alto&quot;);</span>
+    }
+<span class="fc bfc" id="L77" title="All 2 branches covered.">    if (altura &lt; 0.5) {</span>
+<span class="fc" id="L78">      throw new IllegalArgumentException(&quot;Altura inválida: valor muito baixo&quot;);</span>
+    }
+<span class="fc" id="L80">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
