@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gerenciamento de Usuários</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1f1f1f 0%, #3a3a3a 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+
+    header {
+      background: linear-gradient(135deg, #111 0%, #2b2b2b 100%);
+      color: #ffffff;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    .form-section {
+      background: #f2f2f2;
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .form-section h2 {
+      color: #222;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #d0d0d0;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: border-color 0.3s, background 0.3s;
+      background: #ffffff;
+      color: #111;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #000;
+      background: #fafafa;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: #111;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    }
+
+    .btn-secondary {
+      background: #6c6c6c;
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: #555;
+    }
+
+    .btn-danger {
+      background: #333;
+      color: #fff;
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+
+    .btn-danger:hover {
+      background: #000;
+    }
+
+    .btn-edit {
+      background: #bdbdbd;
+      color: #000;
+      padding: 8px 16px;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+
+    .btn-edit:hover {
+      background: #9e9e9e;
+    }
+
+    .table-section {
+      margin-top: 30px;
+    }
+
+    .table-section h2 {
+      color: #222;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    thead {
+      background: #111;
+      color: #fff;
+    }
+
+    th,
+    td {
+      padding: 15px;
+      text-align: left;
+    }
+
+    th {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #e0e0e0;
+      transition: background 0.2s;
+    }
+
+    tbody tr:hover {
+      background: #f4f4f4;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: #777;
+    }
+
+    .alert {
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .alert-success {
+      background: #e6e6e6;
+      color: #111;
+      border: 1px solid #cfcfcf;
+    }
+
+    .alert-error {
+      background: #f0f0f0;
+      color: #000;
+      border: 1px solid #ccc;
+    }
+
+    .alert.show {
+      display: block;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .error-message {
+      color: #000;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .form-group.error input,
+    .form-group.error select {
+      border-color: #000;
+    }
+
+    .form-group.error .error-message {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 10px;
+      }
+
+      .content {
+        padding: 15px;
+      }
+
+      table {
+        font-size: 12px;
+      }
+
+      th,
+      td {
+        padding: 10px;
+      }
+
+      .form-actions {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Sistema de Gerenciamento de Usuários</h1>
+      <p>CRUD Completo - Interface de Teste para Selenium</p>
+    </header>
+
+    <div class="content">
+      <div id="alertContainer"></div>
+
+      <div class="form-section">
+        <h2 id="formTitle">Cadastrar Novo Usuário</h2>
+        <form id="userForm">
+          <input type="hidden" id="userId" name="userId">
+
+          <div class="form-group">
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" name="nome" required>
+            <span class="error-message">Campo obrigatório</span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message">E-mail inválido</span>
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+            <span class="error-message">Telefone inválido</span>
+          </div>
+
+          <div class="form-group">
+            <label for="idade">Idade *</label>
+            <input type="number" id="idade" name="idade" min="18" max="120" required>
+            <span class="error-message">Idade deve ser entre 18 e 120</span>
+          </div>
+
+          <div class="form-group">
+            <label for="status">Status *</label>
+            <select id="status" name="status" required>
+              <option value="">Selecione...</option>
+              <option value="ativo">Ativo</option>
+              <option value="inativo">Inativo</option>
+              <option value="pendente">Pendente</option>
+            </select>
+            <span class="error-message">Selecione um status</span>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary" id="btnSubmit">Cadastrar Usuário</button>
+            <button type="button" class="btn-secondary" id="btnCancel" style="display:none;">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="table-section">
+        <h2>Usuários Cadastrados</h2>
+        <table id="userTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Telefone</th>
+              <th>Idade</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="userTableBody">
+            <tr>
+              <td colspan="7" class="empty-state">Nenhum usuário cadastrado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    class UserManagementSystem {
+      constructor() {
+        this.users = this.loadUsers();
+        this.currentEditId = null;
+        this.nextId = this.getNextId();
+        this.init();
+      }
+
+      init() {
+        this.renderTable();
+        this.attachEventListeners();
+      }
+
+      attachEventListeners() {
+        document.getElementById('userForm').addEventListener('submit', (e) => this.handleSubmit(e));
+        document.getElementById('btnCancel').addEventListener('click', () => this.cancelEdit());
+      }
+
+      loadUsers() {
+        const stored = localStorage.getItem('users');
+        return stored ? JSON.parse(stored) : [];
+      }
+
+      saveUsers() {
+        localStorage.setItem('users', JSON.stringify(this.users));
+      }
+
+      getNextId() {
+        if (this.users.length === 0) return 1;
+        return Math.max(...this.users.map(u => u.id)) + 1;
+      }
+
+      validateForm() {
+        let isValid = true;
+        const form = document.getElementById('userForm');
+        const formGroups = form.querySelectorAll('.form-group');
+
+        formGroups.forEach(group => group.classList.remove('error'));
+
+        const nome = document.getElementById('nome').value.trim();
+        if (nome.length < 3) {
+          document.getElementById('nome').parentElement.classList.add('error');
+          isValid = false;
+        }
+
+        const email = document.getElementById('email').value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          document.getElementById('email').parentElement.classList.add('error');
+          isValid = false;
+        }
+
+        const idade = parseInt(document.getElementById('idade').value);
+        if (idade < 18 || idade > 120) {
+          document.getElementById('idade').parentElement.classList.add('error');
+          isValid = false;
+        }
+
+        const status = document.getElementById('status').value;
+        if (!status) {
+          document.getElementById('status').parentElement.classList.add('error');
+          isValid = false;
+        }
+
+        const telefone = document.getElementById('telefone').value.trim();
+        if (telefone && telefone.length < 10) {
+          document.getElementById('telefone').parentElement.classList.add('error');
+          isValid = false;
+        }
+
+        return isValid;
+      }
+
+      handleSubmit(e) {
+        e.preventDefault();
+
+        if (!this.validateForm()) {
+          this.showAlert('Por favor, corrija os erros no formulário', 'error');
+          return;
+        }
+
+        const formData = {
+          nome: document.getElementById('nome').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          telefone: document.getElementById('telefone').value.trim(),
+          idade: parseInt(document.getElementById('idade').value),
+          status: document.getElementById('status').value
+        };
+
+        if (this.currentEditId) {
+          this.updateUser(this.currentEditId, formData);
+        } else {
+          this.createUser(formData);
+        }
+      }
+
+      createUser(userData) {
+        const newUser = {
+          id: this.nextId++,
+          ...userData,
+          createdAt: new Date().toISOString()
+        };
+
+        this.users.push(newUser);
+        this.saveUsers();
+        this.renderTable();
+        this.resetForm();
+        this.showAlert('Usuário cadastrado com sucesso!', 'success');
+      }
+
+      updateUser(id, userData) {
+        const index = this.users.findIndex(u => u.id === id);
+        if (index !== -1) {
+          this.users[index] = {
+            ...this.users[index],
+            ...userData,
+            updatedAt: new Date().toISOString()
+          };
+          this.saveUsers();
+          this.renderTable();
+          this.resetForm();
+          this.showAlert('Usuário atualizado com sucesso!', 'success');
+        }
+      }
+
+      deleteUser(id) {
+        if (confirm('Tem certeza que deseja excluir este usuário?')) {
+          this.users = this.users.filter(u => u.id !== id);
+          this.saveUsers();
+          this.renderTable();
+          this.showAlert('Usuário excluído com sucesso!', 'success');
+        }
+      }
+
+      editUser(id) {
+        const user = this.users.find(u => u.id === id);
+        if (user) {
+          this.currentEditId = id;
+          document.getElementById('userId').value = user.id;
+          document.getElementById('nome').value = user.nome;
+          document.getElementById('email').value = user.email;
+          document.getElementById('telefone').value = user.telefone;
+          document.getElementById('idade').value = user.idade;
+          document.getElementById('status').value = user.status;
+
+          document.getElementById('formTitle').textContent = 'Editar Usuário';
+          document.getElementById('btnSubmit').textContent = 'Atualizar Usuário';
+          document.getElementById('btnCancel').style.display = 'block';
+
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+
+      cancelEdit() {
+        this.resetForm();
+      }
+
+      resetForm() {
+        document.getElementById('userForm').reset();
+        document.querySelectorAll('.form-group').forEach(group => group.classList.remove('error'));
+        this.currentEditId = null;
+        document.getElementById('userId').value = '';
+        document.getElementById('formTitle').textContent = 'Cadastrar Novo Usuário';
+        document.getElementById('btnSubmit').textContent = 'Cadastrar Usuário';
+        document.getElementById('btnCancel').style.display = 'none';
+      }
+
+      renderTable() {
+        const tbody = document.getElementById('userTableBody');
+
+        if (this.users.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="7" class="empty-state">Nenhum usuário cadastrado</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = this.users.map(user => `
+                    <tr data-user-id="${user.id}">
+                        <td>${user.id}</td>
+                        <td>${user.nome}</td>
+                        <td>${user.email}</td>
+                        <td>${user.telefone || '-'}</td>
+                        <td>${user.idade}</td>
+                        <td><span style="text-transform: capitalize">${user.status}</span></td>
+                        <td>
+                            <button class="btn-edit" onclick="app.editUser(${user.id})">Editar</button>
+                            <button class="btn-danger" onclick="app.deleteUser(${user.id})">Excluir</button>
+                        </td>
+                    </tr>
+                `).join('');
+      }
+
+      showAlert(message, type) {
+        const container = document.getElementById('alertContainer');
+        const alert = document.createElement('div');
+        alert.className = `alert alert-${type} show`;
+        alert.textContent = message;
+
+        container.innerHTML = '';
+        container.appendChild(alert);
+
+        setTimeout(() => {
+          alert.classList.remove('show');
+          setTimeout(() => alert.remove(), 300);
+        }, 3000);
+      }
+    }
+
+    const app = new UserManagementSystem();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="User Management Test Suite" parallel="tests" thread-count="3">
+    
+    <test name="Chrome - CRUD Tests" preserve-order="true">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.usermanagement.tests.UserCrudTest"/>
+        </classes>
+    </test>
+    
+    <test name="Chrome - Validation Tests" preserve-order="true">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.usermanagement.tests.ValidationTest"/>
+        </classes>
+    </test>
+</suite>

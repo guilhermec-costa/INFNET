@@ -1,0 +1,5 @@
+com/usermanagement/tests/ValidationTest.class
+com/usermanagement/tests/UserInterfaceTest.class
+com/usermanagement/tests/UserCrudTest.class
+com/usermanagement/AppTest.class
+com/usermanagement/tests/base/BaseTest.class

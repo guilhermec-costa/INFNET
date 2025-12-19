@@ -1,0 +1,5 @@
+com/usermanagement/pages/UserTablePage.class
+com/usermanagement/App.class
+com/usermanagement/pages/UserFormPage.class
+com/usermanagement/pages/BasePage.class
+com/usermanagement/utils/WaitUtils.class
