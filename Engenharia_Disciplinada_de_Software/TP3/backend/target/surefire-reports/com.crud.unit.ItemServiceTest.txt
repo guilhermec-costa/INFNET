@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.crud.unit.ItemServiceTest
--------------------------------------------------------------------------------
-Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s -- in com.crud.unit.ItemServiceTest

@@ -1,6 +1,0 @@
-/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/test/java/com/crud/fuzz/FuzzTestingTest.java
-/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/test/java/com/crud/integration/ItemControllerIntegrationTest.java
-/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/test/java/com/crud/selenium/SeleniumTest.java
-/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/test/java/com/crud/unit/ItemModelTest.java
-/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/test/java/com/crud/unit/ItemRepositoryTest.java
-/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/test/java/com/crud/unit/ItemServiceTest.java
