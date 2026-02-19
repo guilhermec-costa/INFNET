@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ItemRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">crud-system</a> &gt; <a href="index.source.html" class="el_package">com.crud.repository</a> &gt; <span class="el_source">ItemRepository.java</span></div><h1>ItemRepository.java</h1><pre class="source lang-java linenums">package com.crud.repository;
+
+import com.crud.exception.ResourceNotFoundException;
+import com.crud.model.Item;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
+
+public class ItemRepository {
+    private final Map&lt;String, Item&gt; items;
+    private final AtomicInteger idCounter;
+
+<span class="fc" id="L14">    public ItemRepository() {</span>
+<span class="fc" id="L15">        this.items = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="fc" id="L16">        this.idCounter = new AtomicInteger(1);</span>
+<span class="fc" id="L17">        initializeSampleData();</span>
+<span class="fc" id="L18">    }</span>
+
+    private void initializeSampleData() {
+<span class="fc" id="L21">        save(new Item(generateId(), &quot;Laptop&quot;, &quot;High-performance laptop&quot;, &quot;Electronics&quot;, 2500.00, 10));</span>
+<span class="fc" id="L22">        save(new Item(generateId(), &quot;Mouse&quot;, &quot;Wireless mouse&quot;, &quot;Electronics&quot;, 29.99, 50));</span>
+<span class="fc" id="L23">        save(new Item(generateId(), &quot;Keyboard&quot;, &quot;Mechanical keyboard&quot;, &quot;Electronics&quot;, 89.99, 30));</span>
+<span class="fc" id="L24">    }</span>
+
+    public synchronized String generateId() {
+<span class="fc" id="L27">        return String.valueOf(idCounter.getAndIncrement());</span>
+    }
+
+    public Item save(Item item) {
+<span class="pc bpc" id="L31" title="1 of 4 branches missed.">        if (item.getId() == null || item.getId().isBlank()) {</span>
+<span class="fc" id="L32">            item.setId(generateId());</span>
+        }
+<span class="fc" id="L34">        item.setUpdatedAt(java.time.LocalDateTime.now());</span>
+<span class="fc" id="L35">        items.put(item.getId(), item);</span>
+<span class="fc" id="L36">        return item;</span>
+    }
+
+    public List&lt;Item&gt; findAll() {
+<span class="fc" id="L40">        return new ArrayList&lt;&gt;(items.values());</span>
+    }
+
+    public Item findById(String id) {
+<span class="fc bfc" id="L44" title="All 4 branches covered.">        if (id == null || id.isBlank()) {</span>
+<span class="fc" id="L45">            throw new IllegalArgumentException(&quot;ID cannot be null or empty&quot;);</span>
+        }
+<span class="fc" id="L47">        Item item = items.get(id);</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (item == null) {</span>
+<span class="fc" id="L49">            throw new ResourceNotFoundException(&quot;Item not found with id: &quot; + id);</span>
+        }
+<span class="fc" id="L51">        return item;</span>
+    }
+
+    public List&lt;Item&gt; findByCategory(String category) {
+<span class="pc bpc" id="L55" title="1 of 4 branches missed.">        if (category == null || category.isBlank()) {</span>
+<span class="fc" id="L56">            return findAll();</span>
+        }
+<span class="fc" id="L58">        return items.values().stream()</span>
+<span class="fc" id="L59">                .filter(item -&gt; category.equalsIgnoreCase(item.getCategory()))</span>
+<span class="fc" id="L60">                .collect(Collectors.toList());</span>
+    }
+
+    public Item update(String id, Item item) {
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if (!items.containsKey(id)) {</span>
+<span class="fc" id="L65">            throw new ResourceNotFoundException(&quot;Item not found with id: &quot; + id);</span>
+        }
+<span class="fc" id="L67">        item.setId(id);</span>
+<span class="fc" id="L68">        item.setCreatedAt(items.get(id).getCreatedAt());</span>
+<span class="fc" id="L69">        item.setUpdatedAt(java.time.LocalDateTime.now());</span>
+<span class="fc" id="L70">        items.put(id, item);</span>
+<span class="fc" id="L71">        return item;</span>
+    }
+
+    public void delete(String id) {
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        if (!items.containsKey(id)) {</span>
+<span class="fc" id="L76">            throw new ResourceNotFoundException(&quot;Item not found with id: &quot; + id);</span>
+        }
+<span class="fc" id="L78">        items.remove(id);</span>
+<span class="fc" id="L79">    }</span>
+
+    public boolean exists(String id) {
+<span class="pc bpc" id="L82" title="1 of 4 branches missed.">        return id != null &amp;&amp; items.containsKey(id);</span>
+    }
+
+    public int count() {
+<span class="fc" id="L86">        return items.size();</span>
+    }
+
+    public void clear() {
+<span class="nc" id="L90">        items.clear();</span>
+<span class="nc" id="L91">        idCounter.set(1);</span>
+<span class="nc" id="L92">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

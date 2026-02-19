@@ -1,0 +1,6 @@
+com/crud/unit/ItemModelTest.class
+com/crud/unit/ItemServiceTest.class
+com/crud/unit/ItemRepositoryTest.class
+com/crud/integration/ItemControllerIntegrationTest.class
+com/crud/fuzz/FuzzTestingTest.class
+com/crud/selenium/SeleniumTest.class

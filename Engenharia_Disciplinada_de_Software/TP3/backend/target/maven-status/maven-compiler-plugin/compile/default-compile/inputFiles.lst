@@ -1,0 +1,11 @@
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/main/java/com/crud/Main.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/main/java/com/crud/config/AppConfig.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/main/java/com/crud/controller/ItemController.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/main/java/com/crud/exception/InvalidDataException.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/main/java/com/crud/exception/ResourceNotFoundException.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/main/java/com/crud/exception/TimeoutException.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/main/java/com/crud/exception/ValidationException.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/main/java/com/crud/model/Item.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/main/java/com/crud/model/ItemDTO.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/main/java/com/crud/repository/ItemRepository.java
+/home/guichina/dev/infnet/Engenharia_Disciplinada_de_Software/TP3/backend/src/main/java/com/crud/service/ItemService.java
