@@ -25,11 +25,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-
-      - name: Install Maven
-        run: |
-          apt-get update
-          apt-get install -y maven
+          cache: 'maven'
 
       - name: Run Checkstyle
         uses: dbelyaev/action-checkstyle@master
@@ -50,11 +46,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-
-      - name: Install Maven
-        run: |
-          apt-get update
-          apt-get install -y maven
+          cache: 'maven'
 
       - name: Run tests
         run: mvn test
