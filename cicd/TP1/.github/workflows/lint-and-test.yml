@@ -1,0 +1,60 @@
+name: Lint and Test Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      run_tests:
+        type: boolean
+        default: true
+        description: 'Whether to run tests'
+      run_lint:
+        type: boolean
+        default: true
+        description: 'Whether to run lint'
+
+jobs:
+  lint:
+    if: inputs.run_lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Install Maven
+        run: |
+          apt-get update
+          apt-get install -y maven
+
+      - name: Run Checkstyle
+        uses: dbelyaev/action-checkstyle@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          level: warning
+
+  test:
+    if: inputs.run_tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Install Maven
+        run: |
+          apt-get update
+          apt-get install -y maven
+
+      - name: Run tests
+        run: mvn test
