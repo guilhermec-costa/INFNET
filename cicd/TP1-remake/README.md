@@ -63,20 +63,7 @@ Exemplo incorreto: `jdbc:postgresql://localhost:5432/postgres`
 
 # Parte 2 — Avaliação Prática
 
-## QUESTÃO 1 — Banco Containerizado
-
-### Dockerfile do Banco (postgres.Dockerfile)
-```dockerfile
-FROM postgres:17.8-alpine3.23
-
-ENV POSTGRES_DB=postgres
-ENV POSTGRES_USER=postgres
-ENV POSTGRES_PASSWORD=admin
-
-COPY dados/data.sql /docker-entrypoint-initdb.d/
-
-VOLUME /var/lib/postgresql/data
-```
+## Banco Containerizado
 
 ### Comandos de Build
 ```bash
@@ -106,69 +93,6 @@ docker exec -it ricknmorty-db psql -U postgres -c "SELECT name, status FROM char
 
 ## QUESTÃO 2 — API + Banco na mesma rede Docker
 
-### Dockerfile da API (api.Dockerfile)
-```dockerfile
-FROM eclipse-temurin:17-jdk-alpine AS build
-WORKDIR /app
-COPY app/pom.xml .
-COPY app/src ./src
-RUN apk add --no-cache maven && \
-    mvn clean package -DskipTests
-
-FROM eclipse-temurin:17-jre-alpine
-WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
-```
-
-### docker-compose.yml
-```yaml
-version: '3.8'
-
-services:
-  db:
-    build:
-      context: .
-      dockerfile: postgres.Dockerfile
-    container_name: ricknmorty-db
-    environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: admin
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - app-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-
-  api:
-    build:
-      context: .
-      dockerfile: api.Dockerfile
-    container_name: ricknmorty-api
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: admin
-    ports:
-      - "8080:8080"
-    networks:
-      - app-network
-    depends_on:
-      db:
-        condition: service_healthy
-
-networks:
-  app-network:
-    driver: bridge
-
-volumes:
-  postgres_data:
 ```
 
 ### Comando de Execução
