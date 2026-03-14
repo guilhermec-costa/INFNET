@@ -20,4 +20,11 @@ public class CalculatorService {
         }
         return (double) a / b;
     }
+
+    public double sqrt(int x) {
+        if (x < 0) {
+            throw new ArithmeticException("Square root of negative number is not allowed");
+        }
+        return Math.sqrt(x);
+    }
 }

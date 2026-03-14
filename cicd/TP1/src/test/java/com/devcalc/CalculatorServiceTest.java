@@ -42,4 +42,21 @@ class CalculatorServiceTest {
         );
         assertEquals("Division by zero is not allowed", exception.getMessage());
     }
+
+    @Test
+    void testSqrt() {
+        assertEquals(4.0, service.sqrt(16));
+        assertEquals(5.0, service.sqrt(25));
+        assertEquals(0.0, service.sqrt(0));
+        assertEquals(3.0, service.sqrt(9));
+    }
+
+    @Test
+    void testSqrtNegativeNumber() {
+        ArithmeticException exception = assertThrows(
+            ArithmeticException.class,
+            () -> service.sqrt(-16)
+        );
+        assertEquals("Square root of negative number is not allowed", exception.getMessage());
+    }
 }

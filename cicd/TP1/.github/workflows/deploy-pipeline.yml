@@ -1,0 +1,45 @@
+name: Deploy Pipeline
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+  deploy-dev:
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Deploy to Development
+        run: |
+          echo "=== Deploying to DEV environment ==="
+          echo "Branch: ${{ github.ref }}"
+          echo "Environment: ${{ github.event.environment }}"
+          echo "Running on: ${{ runner.os }}"
+          echo "Deploy completed successfully!"
+      
+      - name: Show dev variables
+        run: |
+          echo "DEV_MODE: ${{ vars.DEV_MODE }}"
+          echo "DEV_URL: ${{ vars.DEV_URL }}"
+
+  deploy-prod:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Deploy to Production
+        run: |
+          echo "=== Deploying to PROD environment ==="
+          echo "Branch: ${{ github.ref }}"
+          echo "Environment: ${{ github.event.environment }}"
+          echo "Running on: ${{ runner.os }}"
+          echo "PROD_API_KEY loaded: ${{ secrets.PROD_API_KEY != '' }}"
+          echo "Deploy completed successfully!"
+      
+      - name: Show prod variables
+        run: |
+          echo "PROD_REGION: ${{ vars.PROD_REGION }}"
+          echo "PROD_URL: ${{ vars.PROD_URL }}"

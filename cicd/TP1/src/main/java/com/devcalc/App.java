@@ -35,5 +35,11 @@ public class App {
             double result = calculatorService.divide(a, b);
             ctx.result(String.valueOf(result));
         });
+
+        app.get("/sqrt", ctx -> {
+            int x = Integer.parseInt(ctx.queryParam("x"));
+            double result = calculatorService.sqrt(x);
+            ctx.result(String.valueOf(result));
+        });
     }
 }
