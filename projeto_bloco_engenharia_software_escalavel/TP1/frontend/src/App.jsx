@@ -140,7 +140,6 @@ export default function App() {
     <div className="app-shell">
       <header className="hero">
         <div>
-          <span className="eyebrow">Monolito simples com Spring + React</span>
           <h1>Sistema de Biblioteca</h1>
           <p>
             Catálogo, leitores e circulação em uma interface simples para o dia a dia da
