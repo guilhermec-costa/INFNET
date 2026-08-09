@@ -1,0 +1,1 @@
+Essa é a aplicação secundária, gerada via Spring Boot CLI
