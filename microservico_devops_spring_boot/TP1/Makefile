@@ -9,7 +9,7 @@ help:
 	@echo "make down     - para os containers"
 	@echo "make logs     - acompanha os logs"
 	@echo "make status   - mostra o status dos containers"
-	@echo "make package  - gera o arquivo ZIP para entrega"
+	@echo "make package  - cria o arquivo ZIP"
 
 build:
 	mvn -Dmaven.repo.local=.m2/repository clean package -DskipTests
@@ -34,4 +34,6 @@ clean:
 
 package:
 	rm -f guilherme_china_DR3_TP1.zip
-	zip -r guilherme_china_DR3_TP1.zip . -x '*/target/*' '.git/*' '.codex/*' '.agents/*' '.m2/*' 'guilherme_china_DR3_TP1.zip'
+	zip -r guilherme_china_DR3_TP1.zip README.md Makefile docker-compose.yml pom.xml \
+		discovery-server api-gateway reservation-service notification-service docs images \
+		-x '*/target/*'
