@@ -1,0 +1,32 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: reservation-service
+  datasource:
+    url: "${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/reservation_db}"
+    username: "${SPRING_DATASOURCE_USERNAME:reservation_user}"
+    password: "${SPRING_DATASOURCE_PASSWORD:reservation_password}"
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+eureka:
+  client:
+    service-url:
+      defaultZone: "${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8761/eureka/}"
+notification:
+  base-url: "${NOTIFICATION_BASE_URL:http://notification-service}"
+resilience4j:
+  circuitbreaker:
+    instances:
+      notificationService:
+        sliding-window-size: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 2
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,circuitbreakers

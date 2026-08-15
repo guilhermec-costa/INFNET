@@ -1,0 +1,75 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: reservation_db
+      POSTGRES_USER: reservation_user
+      POSTGRES_PASSWORD: reservation_password
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U reservation_user -d reservation_db
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mongodb:
+    image: mongo:8
+    environment:
+      MONGO_INITDB_DATABASE: notification_db
+    volumes:
+      - mongo_data:/data/db
+
+  discovery-server:
+    build:
+      context: .
+      dockerfile: discovery-server/Dockerfile
+    ports:
+      - "8761:8761"
+
+  notification-service:
+    build:
+      context: .
+      dockerfile: notification-service/Dockerfile
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka/
+      SPRING_DATA_MONGODB_URI: mongodb://mongodb:27017/notification_db
+    depends_on:
+      - discovery-server
+      - mongodb
+    ports:
+      - "8082:8082"
+
+  reservation-service:
+    build:
+      context: .
+      dockerfile: reservation-service/Dockerfile
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka/
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/reservation_db
+      NOTIFICATION_BASE_URL: http://notification-service
+    depends_on:
+      - discovery-server
+      - postgres
+      - notification-service
+    ports:
+      - "8081:8081"
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: api-gateway/Dockerfile
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-server:8761/eureka/
+    depends_on:
+      - discovery-server
+      - reservation-service
+      - notification-service
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
+  mongo_data:

@@ -1,0 +1,6 @@
+**/target/
+.m2/
+guilherme_china_DR3_TP1.zip
+.idea/
+*.iml
+.DS_Store
