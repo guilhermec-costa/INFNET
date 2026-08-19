@@ -1,6 +1,6 @@
-# Backend
+# Backend principal
 
-API monolítica de biblioteca construída com Spring Boot, com camada de persistência baseada em JPA, Spring Data e auditoria de histórico.
+API principal da Biblioteca construída com Spring Boot. Ela concentra catálogo, leitores e circulação, além de se comunicar com o microsserviço de notificações.
 
 ## Funcionalidades
 
@@ -10,6 +10,19 @@ API monolítica de biblioteca construída com Spring Boot, com camada de persist
 - Registro de devolução
 - Listagem de livros disponíveis
 - Consulta de histórico de alterações de livros, leitores e empréstimos
+- Consulta de notificações de cada leitor
+
+## Integração com o microsserviço de notificações
+
+O `NotificacaoClient` usa Spring Cloud OpenFeign para chamar o serviço de notificações. Ao registrar um empréstimo ou uma devolução, o backend envia um aviso contendo o leitor e a operação realizada.
+
+O endereço do serviço pode ser configurado pela propriedade abaixo:
+
+```properties
+notificacoes.service.url=http://localhost:8081
+```
+
+No Docker Compose, essa propriedade recebe `http://notificacoes-service:8081`, usando a rede interna dos containers.
 
 ## Estrutura
 
@@ -154,10 +167,11 @@ A API sobe em `http://localhost:8080`.
 - `GET /api/emprestimos/{id}/historico`
 - `POST /api/emprestimos`
 - `POST /api/emprestimos/{id}/devolucao`
+- `GET /api/leitores/{leitorId}/notificacoes`
 
 ## Testes
 
-Os testes automatizados da camada de persistência ficam em `src/test/java/com/example/biblioteca/repository`.
+Os testes automatizados ficam em `src/test/java/com/example/biblioteca`.
 
 Cobertura atual:
 
@@ -166,6 +180,7 @@ Cobertura atual:
 - verificação de integridade por ISBN, email e empréstimos ativos
 - carregamento eficiente de relacionamentos em empréstimos
 - registro e consulta de histórico com Envers
+- envio da notificação ao registrar um empréstimo
 
 Execução:
 
