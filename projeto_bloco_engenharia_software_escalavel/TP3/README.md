@@ -160,7 +160,7 @@ docker compose up --build
 | Backend | `http://localhost:8180` | API REST principal. |
 | Notificações | `http://localhost:8181` | API REST do microsserviço. |
 
-O frontend encaminha suas chamadas `/api` internamente ao backend. O backend, por sua vez, usa a rede interna do Compose para chamar `http://notificacoes-service:8081` via OpenFeign. Os bancos H2 ficam em volumes Docker separados e são preservados entre reinicializações.
+O frontend acessa a API principal em `http://localhost:8180/api`. O backend, por sua vez, usa a rede interna do Compose para chamar `http://notificacoes-service:8081` via OpenFeign. Os bancos H2 ficam em volumes Docker separados e são preservados entre reinicializações.
 
 ### Execução local (sem Docker)
 
