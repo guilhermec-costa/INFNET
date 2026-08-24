@@ -1,0 +1,6 @@
+br/edu/infnet/petfriends/agendamento/domain/Agendamento.class
+br/edu/infnet/petfriends/agendamento/domain/ConsultaAgendada.class
+br/edu/infnet/petfriends/agendamento/domain/Agendamento$Status.class
+br/edu/infnet/petfriends/agendamento/application/AgendarConsulta.class
+br/edu/infnet/petfriends/shared/domain/DomainEvent.class
+br/edu/infnet/petfriends/agendamento/application/PublicadorEventos.class
