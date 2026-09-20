@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>guilherme_china_DR4_TP1</title>
+<style>
+  @page { size: A4; margin: 20mm 18mm; }
+  * { box-sizing: border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; color: #202124; font-size: 10.2pt; line-height: 1.35; }
+  .cover { min-height: 255mm; display:flex; flex-direction:column; align-items:center; text-align:center; padding:20mm 8mm 10mm; }
+  .logo { width:45mm; height:45mm; object-fit:contain; margin-top:0; }
+  .line { width:100%; border-top:4px solid #005a9c; margin:12mm 0 15mm; }
+  .cover h1 { font-size:21pt; margin:0; color:#005a9c; line-height:1.25; }
+  .cover h2 { font-weight:400; font-size:14pt; margin:10px 0 30mm; color:#333; }
+  h1 { font-size:17pt; color:#005a9c; margin:0 0 14px; border-bottom:2px solid #005a9c; padding-bottom:6px; }
+  h2 { font-size:13.5pt; color:#333; margin:20px 0 12px; }
+  .question { margin:0 0 12px; break-inside:avoid; }
+  .statement { font-weight:700; margin:0 0 4px; }
+  .answer { margin:0; text-align:justify; }
+  pre { white-space:pre-wrap; background:#f4f5f6; border-left:4px solid #005a9c; padding:10px; font-family:"Courier New", monospace; font-size:7.6pt; line-height:1.27; margin:7px 0 13px; }
+  .pagebreak { break-before:page; }
+  .note { font-size:9.5pt; color:#555; }
+</style>
+</head>
+<body>
+<section class="cover">
+  <img class="logo" src="image.png" alt="Logo do Instituto Infnet">
+  <div class="line"></div>
+  <h1>Domain-Driven Design (DDD) e Arquitetura de Software — TP1</h1>
+  <h2>Nome: Guilherme de Morais China Costa<br>Data: 09/08/2026</h2>
+</section>
+
+<main class="pagebreak">
+<h1>Parte 1 — Fundamentos e Arquitetura</h1>
+<div class="question"><p class="statement">1. Explique de forma sucinta o que são microsserviços.</p><p class="answer">Microsserviços são uma forma de dividir um sistema em aplicações menores, cada uma responsável por uma parte do negócio. Em um e-commerce, por exemplo, pagamento, estoque e entrega podem ser serviços separados. Eles conversam entre si por APIs ou mensagens, mas cada um pode ser desenvolvido e publicado no seu próprio ritmo.</p></div>
+<div class="question"><p class="statement">2. Cite uma vantagem da arquitetura de microsserviços.</p><p class="answer">Uma vantagem é escalar só o que realmente precisa. Em uma promoção, o pagamento pode receber muito mais acessos que o cadastro de usuários. Com microsserviços, é possível aumentar a capacidade apenas do serviço de pagamento, sem gastar recursos com o sistema inteiro.</p></div>
+<div class="question"><p class="statement">3. Cite uma desvantagem da arquitetura de microsserviços.</p><p class="answer">O ganho de independência traz mais trabalho operacional. Em vez de acompanhar uma aplicação, a equipe passa a cuidar de vários serviços, integrações, logs e configurações. Além disso, uma comunicação que antes era uma chamada interna pode falhar por causa da rede.</p></div>
+<div class="question"><p class="statement">4. Cite uma característica dos microsserviços que os diferenciam de outras arquiteturas de software.</p><p class="answer">A principal característica é a autonomia de implantação. Um serviço pode receber uma atualização sem que todos os demais sejam publicados junto com ele. Para isso funcionar bem, os contratos de comunicação precisam ser estáveis e respeitados pelos serviços envolvidos.</p></div>
+<div class="question"><p class="statement">5. Explique de forma sucinta o que é um monólito.</p><p class="answer">Um monólito é uma aplicação em que as funcionalidades ficam reunidas no mesmo projeto e, em geral, são publicadas de uma vez. Ele pode ter uma boa divisão interna de módulos, mas uma alteração no sistema normalmente gera uma nova versão da aplicação inteira.</p></div>
+<div class="question"><p class="statement">6. Explique de forma sucinta o que significa Acoplamento do ponto de vista de Engenharia de Software.</p><p class="answer">Acoplamento é o grau de dependência entre partes do software. Se o módulo de pagamento precisa conhecer tabelas, classes ou regras internas do estoque para funcionar, o acoplamento é alto. Quanto menor essa dependência, mais fácil fica alterar, testar e reaproveitar cada parte sem gerar efeitos inesperados.</p></div>
+<div class="question"><p class="statement">7. Explique de forma sucinta o que significa Coesão do ponto de vista de Engenharia de Software.</p><p class="answer">Coesão indica se as responsabilidades de uma classe ou serviço fazem sentido juntas. Um serviço de pagamento com regras de cobrança, aprovação e estorno tem boa coesão. Se ele também começar a cuidar do cadastro de produtos, passa a reunir assuntos diferentes e fica mais difícil de manter.</p></div>
+<div class="question"><p class="statement">8. Explique de forma sucinta o que é um Agregado do DDD.</p><p class="answer">No DDD, um agregado é um grupo de objetos do domínio que deve permanecer consistente. Ele tem uma porta de entrada, a Aggregate Root, que concentra as mudanças importantes. Assim, em vez de qualquer classe alterar livremente os dados, a raiz garante que as regras do negócio sejam seguidas.</p></div>
+</main>
+
+<main class="pagebreak">
+<h1>Parte 1 — Fundamentos e Arquitetura</h1>
+<div class="question"><p class="statement">9. Cite uma vantagem de construir microsserviços usando Agregados do DDD.</p><p class="answer">Os agregados ajudam a encontrar uma fronteira clara para cada serviço. No caso de pagamento, as regras para aprovar ou recusar uma cobrança ficam no próprio contexto de Pagamento. Isso evita que detalhes de estoque ou usuários se espalhem pelo código e reduz a dependência entre serviços.</p></div>
+<div class="question"><p class="statement">10. Dê um exemplo de mapeamento de um Contexto Delimitado para um microserviço, utilizando a linguagem Java.</p><p class="answer">O Contexto Delimitado de Pagamentos pode se tornar o microserviço <code>pagamento-service</code>. Nele ficam classes como <code>Pagamento</code>, <code>ProcessarPagamento</code> e os adaptadores do gateway de pagamento. Esse serviço entende de cobranças e confirmações, mas não precisa saber como o Estoque ou o Usuário são implementados internamente.</p>
+<pre>br.edu.infnet.pagamento
+├── domain          // regras: Pagamento, StatusPagamento
+├── application     // casos de uso: ProcessarPagamento
+└── infrastructure  // adaptadores: ClienteMonolitoHttp, gateway</pre></div>
+<div class="question"><p class="statement">11. Dê um exemplo de mapeamento de um Agregado, com Objeto de Valor, para o contexto de um microserviço, utilizando a linguagem Java.</p><p class="answer">No serviço de Pagamento, a classe <code>Pagamento</code> é a raiz do agregado, pois é ela que decide quando o status pode mudar de pendente para aprovado ou recusado. Já <code>Dinheiro</code> é um Objeto de Valor: interessa o valor e a moeda que ele representa, e não uma identidade própria. Essa modelagem aparece no código da questão 14.</p></div>
+<div class="question"><p class="statement">12. Porque o compartilhamento de banco de dados é uma estratégia de integração ruim sob o ponto de vista de microsserviços?</p><p class="answer">Quando vários serviços usam o mesmo banco, eles continuam presos uns aos outros. Uma alteração de tabela, uma consulta lenta ou um bloqueio pode afetar mais de um serviço. Também fica difícil saber quem é responsável por cada dado. Por isso, o mais saudável é cada serviço ser dono de sua base e trocar informações por API ou eventos.</p></div>
+
+<h1 class="pagebreak">Parte 2 — Estudo de Caso e Refatoração Prática</h1>
+<p class="note"><strong>Cenário:</strong> sistema monolítico de e-commerce legado, com Usuário, Estoque e Pagamento compartilhando banco de dados e classes fortemente acopladas. A migração para microsserviços deve ocorrer gradualmente.</p>
+<div class="question"><p class="statement">13. Explique qual estratégia de migração você utilizaria para iniciar a transformação desse monólito em microsserviços de forma segura, sem precisar desligar o sistema atual.</p><p class="answer">Eu usaria o padrão Strangler Fig, também chamado de Padrão Estrangulador. Primeiro, criaria uma entrada única para as operações de pagamento. Essa entrada encaminharia uma parte controlada das requisições ao novo serviço, enquanto o monólito continuaria atendendo o restante. Depois de acompanhar os resultados e corrigir o que fosse necessário, novos fluxos seriam direcionados ao microsserviço até o caminho antigo deixar de ser necessário. Dessa forma, a empresa evita uma troca brusca e consegue recuar se surgir algum problema.</p></div>
+</main>
+
+<main class="pagebreak">
+<h1>Questão 14 — Desafio de Implementação</h1>
+<p class="statement">14. O seu primeiro passo será extrair o contexto de Pagamento. Aplique os princípios de DDD e o padrão de migração escolhido para implementar a estrutura inicial desse novo microserviço em Java. Insira os blocos de código demonstrando a classe do novo Aggregate Root de Pagamento e a comunicação com o monólito legado, garantindo baixo acoplamento.</p>
+<p class="answer">Foi criado um projeto Java com Maven chamado <code>pagamento-service</code>. A classe <code>Pagamento</code> concentra a regra de aprovação, enquanto <code>Dinheiro</code> representa o valor cobrado e sua moeda. Para o novo serviço não depender de classes ou tabelas do monólito, a comunicação acontece por uma interface chamada <code>NotificadorMonolito</code>. O adaptador HTTP é o único ponto que conhece o sistema legado, o que facilita trocar a integração no futuro.</p>
+<h2>Aggregate Root e Objeto de Valor</h2>
+<pre>public final class Pagamento {
+    private final UUID id = UUID.randomUUID();
+    private final UUID pedidoId;
+    private final Dinheiro valor;
+    private StatusPagamento status = StatusPagamento.PENDENTE;
+
+    public Pagamento(UUID pedidoId, Dinheiro valor) {
+        this.pedidoId = Objects.requireNonNull(pedidoId);
+        this.valor = Objects.requireNonNull(valor);
+    }
+
+    public void aprovar() {
+        if (status != StatusPagamento.PENDENTE)
+            throw new IllegalStateException("Pagamento já processado");
+        status = StatusPagamento.APROVADO;
+    }
+
+    public record Dinheiro(BigDecimal valor, String moeda) {
+        public Dinheiro {
+            if (valor == null || valor.signum() &lt;= 0)
+                throw new IllegalArgumentException("Valor deve ser positivo");
+        }
+    }
+}</pre>
+<h2>Porta de integração e adaptador para o legado</h2>
+<pre>public interface NotificadorMonolito {
+    void pagamentoProcessado(UUID pedidoId, UUID pagamentoId,
+                             Pagamento.StatusPagamento status);
+}
+
+public final class ClienteMonolitoHttp implements NotificadorMonolito {
+    @Override
+    public void pagamentoProcessado(UUID pedidoId, UUID pagamentoId,
+                                    Pagamento.StatusPagamento status) {
+        // POST /integracoes/pedidos/{pedidoId}/pagamento
+        // Sem acesso às tabelas nem às classes internas do monólito.
+    }
+}</pre>
+<p class="answer">Com essa separação, as regras de pagamento ficam concentradas no agregado e a comunicação com o legado fica isolada no adaptador. Durante a migração, a camada de entrada do sistema pode enviar os pagamentos ao novo serviço de forma gradual. Se alguma etapa ainda não estiver pronta, o fluxo antigo pode continuar ativo temporariamente, sem misturar os dois códigos.</p>
+</main>
+</body></html>

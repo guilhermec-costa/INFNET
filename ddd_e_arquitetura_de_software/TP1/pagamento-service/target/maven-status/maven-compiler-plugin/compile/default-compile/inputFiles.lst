@@ -1,0 +1,4 @@
+/home/guichina/dev/infnet/ddd_e_arquitetura_de_software/TP1/pagamento-service/src/main/java/br/edu/infnet/pagamento/application/NotificadorMonolito.java
+/home/guichina/dev/infnet/ddd_e_arquitetura_de_software/TP1/pagamento-service/src/main/java/br/edu/infnet/pagamento/application/ProcessarPagamento.java
+/home/guichina/dev/infnet/ddd_e_arquitetura_de_software/TP1/pagamento-service/src/main/java/br/edu/infnet/pagamento/domain/Pagamento.java
+/home/guichina/dev/infnet/ddd_e_arquitetura_de_software/TP1/pagamento-service/src/main/java/br/edu/infnet/pagamento/infrastructure/ClienteMonolitoHttp.java

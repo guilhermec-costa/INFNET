@@ -1,0 +1,6 @@
+br/edu/infnet/pagamento/infrastructure/ClienteMonolitoHttp.class
+br/edu/infnet/pagamento/domain/Pagamento$Dinheiro.class
+br/edu/infnet/pagamento/application/NotificadorMonolito.class
+br/edu/infnet/pagamento/domain/Pagamento$StatusPagamento.class
+br/edu/infnet/pagamento/domain/Pagamento.class
+br/edu/infnet/pagamento/application/ProcessarPagamento.class
