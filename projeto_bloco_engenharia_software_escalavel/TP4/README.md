@@ -146,8 +146,6 @@ docker compose up --build
 | API Notificações | http://localhost:8281 |
 | RabbitMQ Management | http://localhost:15672 (biblioteca / biblioteca) |
 
-As portas 4273, 8280 e 8281 evitam conflito com a versão TP3, que pode continuar executando em 4173, 8180 e 8181.
-
 ## Testes
 
 ```bash
@@ -156,24 +154,10 @@ cd ../notificacoes-service && mvn test
 docker compose config
 ```
 
-Resultado validado em 26/09/2026:
+Os testes automatizados cobrem:
 
-- backend: 6 testes, 0 falhas;
-- notificações: 3 testes, 0 falhas;
-- fluxo real: empréstimo e devolução produziram duas notificações;
-- resiliência: com RabbitMQ parado, o empréstimo retornou sucesso e a notificação apareceu após a recuperação;
-- fila principal e DLQ declaradas como duráveis, com um consumidor ativo e mensagens processadas.
-
-## Rubrica — evidências
-
-| Critério | Evidência |
-| --- | --- |
-| Prós e contras | Seção “Prós e contras”. |
-| Diferentes padrões | Tabela “Padrões de mensagens implementados”. |
-| RabbitMQ | Exchange, filas, bindings, retry, DLX/DLQ e Compose. |
-| Abstrações Spring Boot | `RabbitTemplate`, `@RabbitListener`, Beans AMQP e propriedades. |
-| Refatoração do acoplamento | POST OpenFeign removido; escrita via eventos e leitura HTTP preservada. |
-| Código-fonte | Três aplicações e infraestrutura no repositório. |
-| Git | Alterações do TP4 versionadas no repositório. |
-| Diagramas | Diagramas de arquitetura e sequência neste documento. |
-| Apresentação prática | Roteiro e cenários validados, prontos para gravação. |
+- regras de empréstimo, devolução e disponibilidade dos livros;
+- persistência e histórico das entidades;
+- registro dos eventos na Outbox;
+- criação de notificações a partir dos eventos;
+- descarte de eventos duplicados pelo consumidor idempotente.
