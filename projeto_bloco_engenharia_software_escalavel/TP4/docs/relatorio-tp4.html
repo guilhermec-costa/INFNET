@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>guilherme_china_PB_TP4</title>
+<style>
+@page { size: A4; margin: 16mm 17mm 18mm; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #172033; font-size: 10.5pt; line-height: 1.42; }
+.page { height: 250mm; break-after: page; position: relative; }
+.page:last-child { break-after: auto; }
+h1 { color: #183e75; font-size: 24pt; line-height: 1.12; margin: 0 0 8mm; }
+h2 { color: #183e75; font-size: 17pt; margin: 0 0 5mm; padding-bottom: 2mm; border-bottom: 2px solid #4f8bd6; }
+h3 { color: #245995; font-size: 12.5pt; margin: 5mm 0 2mm; }
+p { margin: 0 0 3mm; }
+ul { margin: 1mm 0 4mm 6mm; padding-left: 5mm; }
+li { margin-bottom: 1.2mm; }
+.meta { margin-top: 9mm; font-size: 12pt; line-height: 1.8; }
+.label { font-weight: bold; color: #183e75; }
+.hero { margin: 27mm 0 18mm; border-left: 7px solid #4f8bd6; padding: 8mm; background: #f2f7fd; }
+.subtitle { font-size: 14pt; color: #49627f; }
+.link { color: #205fb1; word-break: break-all; }
+.badges { display: flex; gap: 4mm; margin: 8mm 0; }
+.badge { flex: 1; background: #183e75; color: white; border-radius: 5px; padding: 5mm; }
+.badge strong { display: block; font-size: 21pt; }
+.arch { display: flex; align-items: stretch; gap: 2mm; margin: 8mm 0 5mm; }
+.box { flex: 1; border: 2px solid #4f8bd6; border-radius: 7px; padding: 4mm 2mm; text-align: center; background: #f7faff; }
+.box.accent { background: #fff3e7; border-color: #e79035; }
+.box.green { background: #effaf4; border-color: #3d9d67; }
+.arrow { display: flex; align-items: center; color: #4f8bd6; font-size: 18pt; }
+.note { padding: 4mm; background: #fff8dd; border-left: 4px solid #e6b83f; margin: 4mm 0; }
+.flow { counter-reset: step; padding: 0; }
+.flow li { list-style: none; margin: 0 0 3mm; padding: 3mm 4mm 3mm 13mm; background: #f3f6fa; border-radius: 5px; position: relative; }
+.flow li:before { counter-increment: step; content: counter(step); position: absolute; left: 3mm; top: 2.6mm; width: 7mm; height: 7mm; border-radius: 50%; background: #245995; color: white; text-align: center; line-height: 7mm; font-weight: bold; }
+table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; font-size: 9pt; }
+th { background: #183e75; color: white; text-align: left; }
+th, td { border: 1px solid #b8c6d8; padding: 2.2mm; vertical-align: top; }
+tr:nth-child(even) td { background: #f5f8fc; }
+code, pre { font-family: "DejaVu Sans Mono", monospace; }
+pre { background: #172033; color: #eef5ff; padding: 4mm; border-radius: 5px; font-size: 8.2pt; line-height: 1.35; white-space: pre-wrap; }
+.screenshot { width: 100%; max-height: 145mm; object-fit: contain; border: 1px solid #b8c6d8; border-radius: 5px; box-shadow: 0 2px 8px #ccd5df; }
+.evidence { background: #effaf4; border: 1px solid #8ec5a5; border-radius: 6px; padding: 5mm; margin: 5mm 0; }
+.pass { color: #17733e; font-weight: bold; }
+.footer { position: absolute; bottom: 0; left: 0; right: 0; color: #718096; font-size: 8pt; display: flex; justify-content: space-between; border-top: 1px solid #dbe3ed; padding-top: 2mm; }
+.cols { display: flex; gap: 6mm; }
+.cols > div { flex: 1; }
+.small { font-size: 9pt; color: #4f5d70; }
+</style>
+</head>
+<body>
+<section class="page">
+  <div class="meta">
+    <div><span class="label">Nome:</span> Guilherme de Morais China Costa</div>
+    <div><span class="label">Data:</span> 26/09/2026</div>
+    <div><span class="label">Título:</span> Projeto de Bloco: Engenharia de Softwares Escaláveis — TP4</div>
+  </div>
+  <div class="hero">
+    <h1>Refatoração para Arquitetura Orientada a Eventos</h1>
+    <div class="subtitle">Spring Boot · RabbitMQ · Transactional Outbox · Retry e DLQ</div>
+  </div>
+  <p><span class="label">Link da implementação:</span></p>
+  <p class="link">https://github.com/GuiC0506/infnet/tree/master/projeto_bloco_engenharia_software_escalavel/TP4</p>
+  <div class="badges">
+    <div class="badge"><strong>2</strong>eventos de domínio versionados</div>
+    <div class="badge"><strong>4</strong>padrões de confiabilidade</div>
+    <div class="badge"><strong>9/9</strong>testes automatizados aprovados</div>
+  </div>
+  <div class="note"><strong>Resultado:</strong> a criação de empréstimos e devoluções não depende mais da disponibilidade imediata do microsserviço de notificações.</div>
+  <div class="footer"><span>PB — Engenharia de Softwares Escaláveis</span><span>TP4 · 1</span></div>
+</section>
+
+<section class="page">
+  <h2>1. Mudança arquitetural</h2>
+  <h3>Antes: comunicação fortemente acoplada</h3>
+  <p>O backend chamava o endpoint POST de Notificações via OpenFeign dentro da operação de empréstimo. Falha ou lentidão no microsserviço propagava-se para a transação principal.</p>
+  <div class="arch">
+    <div class="box">Frontend</div><div class="arrow">→</div>
+    <div class="box">Biblioteca</div><div class="arrow">→</div>
+    <div class="box accent">HTTP síncrono</div><div class="arrow">→</div>
+    <div class="box">Notificações</div>
+  </div>
+  <h3>Depois: escrita orientada a eventos</h3>
+  <div class="arch">
+    <div class="box">Biblioteca<br><small>produtor</small></div><div class="arrow">→</div>
+    <div class="box green">Outbox<br><small>mesma transação</small></div><div class="arrow">→</div>
+    <div class="box accent">RabbitMQ<br><small>topic exchange</small></div><div class="arrow">→</div>
+    <div class="box">Notificações<br><small>consumidor</small></div>
+  </div>
+  <p>A consulta GET continua síncrona, pois é uma leitura solicitada pelo usuário. A escrita foi desacoplada e passa pelo broker.</p>
+  <h3>Componentes do Docker Compose</h3>
+  <table>
+    <tr><th>Componente</th><th>Responsabilidade</th><th>Porta</th></tr>
+    <tr><td>React</td><td>Interface da biblioteca</td><td>4273</td></tr>
+    <tr><td>Biblioteca</td><td>Catálogo, leitores, circulação e publicação</td><td>8280</td></tr>
+    <tr><td>RabbitMQ</td><td>Roteamento, fila durável, ACK e DLQ</td><td>5672 / 15672</td></tr>
+    <tr><td>Notificações</td><td>Consumo idempotente e histórico</td><td>8281</td></tr>
+  </table>
+  <div class="footer"><span>Arquitetura</span><span>TP4 · 2</span></div>
+</section>
+
+<section class="page">
+  <h2>2. Fluxo dos eventos</h2>
+  <ol class="flow">
+    <li>A API valida livro e leitor e atualiza o empréstimo.</li>
+    <li>O evento é serializado e salvo em <code>event_outbox</code> na mesma transação do domínio.</li>
+    <li><code>OutboxPublisher</code>, executado por <code>@Scheduled</code>, envia JSON persistente ao TopicExchange.</li>
+    <li>O publisher só marca o evento como PUBLICADO após receber o publisher confirm do RabbitMQ.</li>
+    <li>A routing key seleciona a fila <code>notificacoes.emprestimos.v1</code>.</li>
+    <li>O método com <code>@RabbitListener</code> consome e verifica o <code>eventId</code>.</li>
+    <li>A notificação é persistida e a mensagem recebe ACK. Em falha, há três tentativas e depois DLQ.</li>
+  </ol>
+  <h3>Eventos e roteamento</h3>
+  <table>
+    <tr><th>Evento</th><th>Routing key</th><th>Efeito</th></tr>
+    <tr><td>EMPRESTIMO_REGISTRADO</td><td>biblioteca.emprestimo.registrado.v1</td><td>Aviso com data prevista.</td></tr>
+    <tr><td>DEVOLUCAO_REGISTRADA</td><td>biblioteca.emprestimo.devolvido.v1</td><td>Confirmação de devolução.</td></tr>
+  </table>
+  <pre>{
+  "eventId": "0e62...c7",
+  "eventType": "EMPRESTIMO_REGISTRADO",
+  "eventVersion": 1,
+  "occurredAt": "2026-09-26T16:55:26Z",
+  "emprestimoId": 1,
+  "leitorId": 3,
+  "livroTitulo": "Arquitetura Orientada a Eventos",
+  "dataPrevistaDevolucao": "2026-10-30"
+}</pre>
+  <div class="footer"><span>Fluxos de eventos</span><span>TP4 · 3</span></div>
+</section>
+
+<section class="page">
+  <h2>3. Padrões de mensagens e Spring Boot</h2>
+  <table>
+    <tr><th>Padrão</th><th>Implementação</th><th>Benefício</th></tr>
+    <tr><td>Publish/subscribe</td><td>TopicExchange + routing keys</td><td>Novos consumidores sem alterar o produtor.</td></tr>
+    <tr><td>Fila de trabalho</td><td>Fila durável com consumidores concorrentes</td><td>Distribuição de carga e escala horizontal.</td></tr>
+    <tr><td>Transactional Outbox</td><td>Evento e domínio no mesmo H2/commit</td><td>Não perde eventos quando o broker falha.</td></tr>
+    <tr><td>Retry + Dead Letter</td><td>3 tentativas, backoff, DLX e DLQ</td><td>Isola mensagens problemáticas.</td></tr>
+    <tr><td>Idempotent Consumer</td><td>eventId com unicidade</td><td>Reentregas não duplicam avisos.</td></tr>
+    <tr><td>Request/response</td><td>OpenFeign somente para GET</td><td>Leitura imediata para o frontend.</td></tr>
+  </table>
+  <h3>Abstrações utilizadas</h3>
+  <div class="cols">
+    <div>
+      <ul>
+        <li><code>spring-boot-starter-amqp</code></li>
+        <li><code>RabbitTemplate</code></li>
+        <li><code>@RabbitListener</code></li>
+        <li><code>TopicExchange</code></li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li><code>Queue</code> e <code>BindingBuilder</code></li>
+        <li><code>@Scheduled</code></li>
+        <li>publisher confirms</li>
+        <li>configuração externa por ambiente</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note">Filas e exchanges são declaradas automaticamente na inicialização. As mensagens são persistentes e os eventos possuem contrato versionado.</div>
+  <div class="footer"><span>Padrões de mensagens</span><span>TP4 · 4</span></div>
+</section>
+
+<section class="page">
+  <h2>4. Avaliação: prós, contras e cenários</h2>
+  <div class="cols">
+    <div>
+      <h3>Vantagens</h3>
+      <ul>
+        <li>Desacoplamento temporal entre produtor e consumidor.</li>
+        <li>Escala horizontal e absorção de picos.</li>
+        <li>Extensibilidade para novos consumidores.</li>
+        <li>Falhas recuperáveis com Outbox, retry e DLQ.</li>
+        <li>Responsabilidades e bancos independentes.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Desvantagens</h3>
+      <ul>
+        <li>Consistência eventual.</li>
+        <li>Mais infraestrutura para operar.</li>
+        <li>Depuração distribuída mais difícil.</li>
+        <li>Necessidade de versionar contratos.</li>
+        <li>Entrega pelo menos uma vez exige idempotência.</li>
+      </ul>
+    </div>
+  </div>
+  <h3>Quando é vantajosa</h3>
+  <p>Integrações assíncronas, múltiplos interessados no mesmo fato, picos de carga, processos demorados e domínios em que o produtor deve continuar disponível mesmo se consumidores falharem.</p>
+  <h3>Quando evitar</h3>
+  <p>Operações pequenas que precisam de resposta imediata e consistência forte entre poucos componentes podem ser mais simples com comunicação síncrona.</p>
+  <h3>Mitigações adotadas</h3>
+  <table>
+    <tr><th>Risco</th><th>Mitigação</th></tr>
+    <tr><td>Perda entre banco e broker</td><td>Transactional Outbox.</td></tr>
+    <tr><td>Duplicação</td><td>eventId único e consumidor idempotente.</td></tr>
+    <tr><td>Mensagem inválida</td><td>Retry com backoff e dead-letter queue.</td></tr>
+    <tr><td>Contrato incompatível</td><td>eventVersion e routing key terminada em v1.</td></tr>
+  </table>
+  <div class="footer"><span>Avaliação arquitetural</span><span>TP4 · 5</span></div>
+</section>
+
+<section class="page">
+  <h2>5. Demonstração funcional</h2>
+  <img class="screenshot" src="assets/tp4-frontend.png" alt="Interface da biblioteca em execução">
+  <p class="small">Interface React executada pelo Docker Compose durante a validação.</p>
+  <div class="evidence">
+    <div class="pass">✓ Cenário 1 — caminho feliz</div>
+    <p>Empréstimo do livro “Arquitetura Orientada a Eventos” gerou EMPRESTIMO_REGISTRADO. A devolução gerou DEVOLUCAO_REGISTRADA. As duas notificações ficaram disponíveis na consulta do leitor.</p>
+  </div>
+  <div class="evidence">
+    <div class="pass">✓ Cenário 2 — broker indisponível</div>
+    <p>Com RabbitMQ parado, o empréstimo “Sistemas Resilientes” retornou sucesso e a consulta inicialmente retornou lista vazia. Após reiniciar o broker, a notificação apareceu automaticamente, comprovando a recuperação pela Outbox.</p>
+  </div>
+  <div class="footer"><span>Demonstração</span><span>TP4 · 6</span></div>
+</section>
+
+<section class="page">
+  <h2>6. Testes e evidências</h2>
+  <div class="badges">
+    <div class="badge"><strong>6/6</strong>backend</div>
+    <div class="badge"><strong>3/3</strong>notificações</div>
+    <div class="badge"><strong>0</strong>falhas</div>
+  </div>
+  <pre>backend
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+BUILD SUCCESS
+
+notificacoes-service
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+BUILD SUCCESS
+
+docker compose config
+Configuração válida</pre>
+  <h3>O que os testes verificam</h3>
+  <ul>
+    <li>registro do evento de empréstimo na Outbox;</li>
+    <li>routing key e conteúdo do evento;</li>
+    <li>persistência da notificação recebida por evento;</li>
+    <li>idempotência diante do mesmo eventId;</li>
+    <li>repositórios, regras de circulação e histórico já existentes.</li>
+  </ul>
+  <h3>Comandos de reprodução</h3>
+  <pre>docker compose up --build
+cd backend && mvn test
+cd ../notificacoes-service && mvn test</pre>
+  <p>O arquivo <code>ROTEIRO_DEMONSTRACAO.md</code> contém a sequência pronta para a gravação, incluindo o cenário com o RabbitMQ temporariamente indisponível.</p>
+  <div class="footer"><span>Testes</span><span>TP4 · 7</span></div>
+</section>
+
+<section class="page">
+  <h2>7. Atendimento à rubrica</h2>
+  <table>
+    <tr><th>Item</th><th>Evidência entregue</th></tr>
+    <tr><td>Prós e contras</td><td>Seção 4 deste relatório e README.</td></tr>
+    <tr><td>Diferentes padrões</td><td>Pub/sub, work queue, Outbox, retry/DLQ, idempotência e request/response.</td></tr>
+    <tr><td>RabbitMQ</td><td>Exchange, bindings, filas duráveis, confirm, ACK, retry e DLQ.</td></tr>
+    <tr><td>Abstrações Spring Boot</td><td>RabbitTemplate, @RabbitListener, @Scheduled e Beans AMQP.</td></tr>
+    <tr><td>Sistema refatorado</td><td>POST síncrono removido; produtor e consumidor desacoplados.</td></tr>
+    <tr><td>Código-fonte</td><td>Backend, frontend, microsserviço e Compose no TP4.</td></tr>
+    <tr><td>Git</td><td>Arquivos versionados no repositório Git.</td></tr>
+    <tr><td>Documentação e diagramas</td><td>README, arquitetura, sequência, contrato e este PDF.</td></tr>
+    <tr><td>Apresentação prática</td><td>Roteiro de 5–7 minutos e cenários previamente validados.</td></tr>
+  </table>
+  <h3>Conclusão</h3>
+  <p>A refatoração eliminou o acoplamento síncrono na escrita e aumentou resiliência, escalabilidade e capacidade de evolução. A solução lida explicitamente com os principais desafios de sistemas orientados a eventos: perda, duplicação, falha persistente e evolução de contrato.</p>
+  <div class="note"><strong>Material para gravação:</strong> execute o roteiro, mostre a interface e o painel RabbitMQ e finalize com o cenário de indisponibilidade. A gravação em si fica a cargo do aluno, conforme combinado.</div>
+  <div class="footer"><span>Conclusão</span><span>TP4 · 8</span></div>
+</section>
+</body>
+</html>
