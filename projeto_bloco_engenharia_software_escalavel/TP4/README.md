@@ -129,7 +129,6 @@ notificacoes-service/
   event/EmprestimoEventListener.java
   service/NotificacaoService.java
 docker-compose.yml
-ROTEIRO_DEMONSTRACAO.md
 ```
 
 ## Execução
@@ -164,10 +163,6 @@ Resultado validado em 26/09/2026:
 - fluxo real: empréstimo e devolução produziram duas notificações;
 - resiliência: com RabbitMQ parado, o empréstimo retornou sucesso e a notificação apareceu após a recuperação;
 - fila principal e DLQ declaradas como duráveis, com um consumidor ativo e mensagens processadas.
-
-## Demonstração
-
-O roteiro completo, com comandos e falas sugeridas, está em [ROTEIRO_DEMONSTRACAO.md](ROTEIRO_DEMONSTRACAO.md). A demonstração mostra o caminho feliz, o painel do RabbitMQ e a recuperação após indisponibilidade do broker.
 
 ## Rubrica — evidências
 
